@@ -178,10 +178,201 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="deleting-a-visitation-record-code-deletevisit-code"><a class="link" href="#deleting-a-visitation-record-code-deletevisit-code">Deleting a visitation record : <code>deleteVisit</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Deletes the specified visitation record.<br>
+Format: <code>deleteVisit [n/NAME] [d/DATE]</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the visitation record of person NAME on DATE</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteVisit n/Betsy d/12/12/12</code><br>
+Deletes the visitation report made for <code>Betsy</code> on 12/12/12.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="follow-up-with-person-code-followup-code"><a class="link" href="#follow-up-with-person-code-followup-code">Follow-Up with Person : <code>followup</code></a></h3>
+<div class="paragraph">
+<p>Adds a follow-up reminder after a set number of days to be prompted when the program is run.<br>
+Format: <code>followup INDEX [d/DAYS]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Creates a follow-up entry on patient with specified index for a set number of days or default 7 days.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>followup 9 d/10</code><br>
+Creates a follow-up entry on patient with index 9 for 10 days later.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-reminders-code-reminder-code"><a class="link" href="#creating-reminders-code-reminder-code">Creating Reminders : <code>reminder</code></a></h3>
+<div class="paragraph">
+<p>Creates a new reminder to show up when the program is launched.<br>
+Format: <code>reminder TEXT [d/DAYS]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Creates a reminder to be displayed when the program launches for a set number of days or default 7 days.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>reminder Two Point Hospital closed d/7</code><br>
+Creates a reminder “Two Point Hospital closed” that will display at launch for the next 7 days.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
+<div class="paragraph">
+<p>VISIT&#8217;s address book data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inventory-system-code-coming-in-v2-0-code"><a class="link" href="#inventory-system-code-coming-in-v2-0-code">Inventory System <code>[Coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>VISIT v2.0 will include an inventory system for doctors to manage and organise their medical stores.
+Doctors will be able to generate the list of medication in their stock and assign them to patients using the app
+, which automatically deducts from that list.<br>
+Warnings of low stocks are also an intended feature.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="printing-of-medical-certificates-code-coming-in-v2-0-code"><a class="link" href="#printing-of-medical-certificates-code-coming-in-v2-0-code">Printing of Medical Certificates <code>[Coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>In v2.0, VISIT will allow doctors to easily print an official Medical Certificate with a single command.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="microsoft-azure-integration-code-coming-in-v2-0-code"><a class="link" href="#microsoft-azure-integration-code-coming-in-v2-0-code">Microsoft Azure Integration <code>[Coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Microsoft Azure is a popular Cloud Computing platform that allows for data analysis, remote deployment and user
+authentication resources. We plan to leverage this power in VISIT v2.0 so that doctors may securely access
+VISIT from any location, truly bringing VISIT on-the-go.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+</li>
+<li>
+<p><strong>Add Visit</strong> : <code>addvisit [n/NAME] [d/DATE] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>addVisit n/Betsy Crowe t/12/12/12 e/Betsy@example.com</code></p>
+</li>
+<li>
+<p><strong>Add a Follow-Up</strong> : <code>followup INDEX [d/DAYS]</code><br>
+e.g. <code>followup 9 d/10</code></p>
+</li>
+<li>
+<p><strong>Add a Reminder</strong> : <code>reminder TEXT [d/DAYS]</code><br>
+e.g. <code>reminder Two Point Hospital closed d/7</code></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Delete</strong> : <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
+</li>
+<li>
+<p><strong>Delete Visit</strong> : <code>deleteVisit [n/NAME] [d/DATE]</code><br>
+e.g. <code>deleteVisit n/Betsy d/12/12/12</code></p>
+</li>
+<li>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+</li>
+<li>
+<p><strong>Edit Visit</strong> : <code>editVisit [n/NAME] [d/date] [f/FIELDTOEDIT]&#8230;&#8203;</code><br>
+e.g. <code>editVisit n/Betsy Crower t/12/12/12 p/prescription</code></p>
+</li>
+<li>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find James Jake</code></p>
+</li>
+<li>
+<p><strong>View a Patient Profile</strong> : <code>profile INDEX</code><br>
+e.g. <code>profile 2</code></p>
+</li>
+<li>
+<p><strong>Shorthand Commands</strong> : <code>alias [SHORTHAND] [COMMAND]</code><br>
+e.g. <code>alias ls list</code>, <code>alias "show all persons" list</code></p>
+</li>
+<li>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -428,4 +619,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-17 15:50:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-03 15:13:43 UTC</div></div></div></body></html>
