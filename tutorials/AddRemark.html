@@ -6,7 +6,7 @@
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#create-a-new-code-remark-code-command">Create a new <code>remark</code> command</a>
+<li><a href="#create-a-new-code-visitlist-code-command">Create a new <code>visitList</code> command</a>
 <ul class="sectlevel2">
 <li><a href="#hook-code-remarkcommand-code-into-the-application">Hook <code>RemarkCommand</code> into the application</a></li>
 <li><a href="#run-the-application">Run the application</a></li>
@@ -25,7 +25,7 @@
 <li><a href="#make-use-of-code-remark-code">Make use of <code>Remark</code></a></li>
 </ul>
 </li>
-<li><a href="#add-a-placeholder-element-for-remark-to-the-ui">Add a placeholder element for remark to the UI</a></li>
+<li><a href="#add-a-placeholder-element-for-visitlist-to-the-ui">Add a placeholder element for visitList to the UI</a></li>
 <li><a href="#modify-code-person-code-to-support-a-code-remark-code-field">Modify <code>Person</code> to support a <code>Remark</code> field</a>
 <ul class="sectlevel2">
 <li><a href="#modify-code-person-code">Modify <code>Person</code></a></li>
@@ -53,12 +53,12 @@
 <h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this tutorial, we&#8217;ll walk you through the implementation of a new command&#8201;&#8212;&#8201;<code>remark</code>.</p>
+<p>In this tutorial, we&#8217;ll walk you through the implementation of a new command&#8201;&#8212;&#8201;<code>visitList</code>.</p>
 </div>
 <div class="paragraph">
 <p>This command allows users of the AddressBook application to add optional remarks to people in their address book and edit it if required.
-The command should have the format of <code>remark INDEX r/REMARK</code>.
-An example of the command is <code>remark 2 r/Likes baseball</code>.</p>
+The command should have the format of <code>visitList INDEX r/REMARK</code>.
+An example of the command is <code>visitList 2 r/Likes baseball</code>.</p>
 </div>
 <div class="paragraph">
 <p>We&#8217;ll assume that you have already set up the development environment as outlined in the Developer&#8217;s Guide.</p>
@@ -66,7 +66,7 @@ An example of the command is <code>remark 2 r/Likes baseball</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="create-a-new-code-remark-code-command"><a class="link" href="#create-a-new-code-remark-code-command">Create a new <code>remark</code> command</a></h2>
+<h2 id="create-a-new-code-visitlist-code-command"><a class="link" href="#create-a-new-code-visitlist-code-command">Create a new <code>visitList</code> command</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Looking in the <code>logic.command</code> package, you will notice that each existing command have their own class.
@@ -88,15 +88,15 @@ We accomplish that by returning a <code>CommandResult</code> with an accompanyin
 <span class="keyword">import</span> <span class="include">seedu.address.model.Model</span>;
 
 <span class="comment">/**
- * Changes the remark of an existing person in the address book.
+ * Changes the visitList of an existing person in the address book.
  */</span>
 <span class="directive">public</span> <span class="type">class</span> <span class="class">RemarkCommand</span> <span class="directive">extends</span> Command {
 
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_WORD = <span class="string"><span class="delimiter">&quot;</span><span class="content">remark</span><span class="delimiter">&quot;</span></span>;
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_WORD = <span class="string"><span class="delimiter">&quot;</span><span class="content">visitList</span><span class="delimiter">&quot;</span></span>;
 
     <span class="annotation">@Override</span>
     <span class="directive">public</span> CommandResult execute(Model model) {
-        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello from remark</span><span class="delimiter">&quot;</span></span>);
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello from visitList</span><span class="delimiter">&quot;</span></span>);
     }
 }</code></pre>
 </div>
@@ -104,7 +104,7 @@ We accomplish that by returning a <code>CommandResult</code> with an accompanyin
 <div class="sect2">
 <h3 id="hook-code-remarkcommand-code-into-the-application"><a class="link" href="#hook-code-remarkcommand-code-into-the-application">Hook <code>RemarkCommand</code> into the application</a></h3>
 <div class="paragraph">
-<p>Now that we have our <code>RemarkCommand</code> ready to be executed, we need to update <code>AddressBookParser#parseCommand()</code> to recognize the <code>remark</code> keyword.
+<p>Now that we have our <code>RemarkCommand</code> ready to be executed, we need to update <code>AddressBookParser#parseCommand()</code> to recognize the <code>visitList</code> keyword.
 Add the new command to the <code>switch</code> block by creating a new <code>case</code> that returns a new instance of <code>RemarkCommand</code>.</p>
 </div>
 <div class="paragraph">
@@ -119,7 +119,7 @@ If everything went well, you should see something like this:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/add-remark/RemarkHello.png" alt="RemarkHello">
+<img src="../images/add-visitList/RemarkHello.png" alt="RemarkHello">
 </div>
 <div class="title">Figure 1. Output displayed</div>
 </div>
@@ -135,7 +135,7 @@ Let&#8217;s change the command to throw an <code>CommandException</code> to accu
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/add-remark/CommandInterface.png" alt="CommandInterface">
+<img src="../images/add-visitList/CommandInterface.png" alt="CommandInterface">
 </div>
 <div class="title">Figure 2. The relationship between RemarkCommand and Command</div>
 </div>
@@ -145,9 +145,9 @@ Let&#8217;s change the command to throw an <code>CommandException</code> to accu
 <div class="listingblock">
 <div class="title">RemarkCommand.java</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_USAGE = COMMAND_WORD + <span class="string"><span class="delimiter">&quot;</span><span class="content">: Edits the remark of the person identified </span><span class="delimiter">&quot;</span></span>
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_USAGE = COMMAND_WORD + <span class="string"><span class="delimiter">&quot;</span><span class="content">: Edits the visitList of the person identified </span><span class="delimiter">&quot;</span></span>
             + <span class="string"><span class="delimiter">&quot;</span><span class="content">by the index number used in the last person listing. </span><span class="delimiter">&quot;</span></span>
-            + <span class="string"><span class="delimiter">&quot;</span><span class="content">Existing remark will be overwritten by the input.</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>
+            + <span class="string"><span class="delimiter">&quot;</span><span class="content">Existing visitList will be overwritten by the input.</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>
             + <span class="string"><span class="delimiter">&quot;</span><span class="content">Parameters: INDEX (must be a positive integer) </span><span class="delimiter">&quot;</span></span>
             + <span class="string"><span class="delimiter">&quot;</span><span class="content">r/ [REMARK]</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>
             + <span class="string"><span class="delimiter">&quot;</span><span class="content">Example: </span><span class="delimiter">&quot;</span></span> + COMMAND_WORD + <span class="string"><span class="delimiter">&quot;</span><span class="content"> 1 </span><span class="delimiter">&quot;</span></span>
@@ -185,21 +185,21 @@ While this is not a replacement for tests, it is an obvious way to tell if our c
     <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_ARGUMENTS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Index: %1$d, Remark: %2$s</span><span class="delimiter">&quot;</span></span>;
 
     <span class="directive">private</span> <span class="directive">final</span> Index index;
-    <span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">String</span> remark;
+    <span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">String</span> visitList;
 
     <span class="comment">/**
-     * @param index of the person in the filtered person list to edit the remark
-     * @param remark of the person to be updated to
+     * @param index of the person in the filtered person list to edit the visitList
+     * @param visitList of the person to be updated to
      */</span>
-    <span class="directive">public</span> RemarkCommand(Index index, <span class="predefined-type">String</span> remark) {
-        requireAllNonNull(index, remark);
+    <span class="directive">public</span> RemarkCommand(Index index, <span class="predefined-type">String</span> visitList) {
+        requireAllNonNull(index, visitList);
 
         <span class="local-variable">this</span>.index = index;
-        <span class="local-variable">this</span>.remark = remark;
+        <span class="local-variable">this</span>.visitList = visitList;
     }
     <span class="annotation">@Override</span>
     <span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
-        <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(<span class="predefined-type">String</span>.format(MESSAGE_ARGUMENTS, index.getOneBased(), remark));
+        <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(<span class="predefined-type">String</span>.format(MESSAGE_ARGUMENTS, index.getOneBased(), visitList));
     }
 
     <span class="annotation">@Override</span>
@@ -217,7 +217,7 @@ While this is not a replacement for tests, it is an obvious way to tell if our c
         <span class="comment">// state check</span>
         RemarkCommand e = (RemarkCommand) other;
         <span class="keyword">return</span> index.equals(e.index)
-                &amp;&amp; remark.equals(e.remark);
+                &amp;&amp; visitList.equals(e.visitList);
     }
 }</code></pre>
 </div>
@@ -229,7 +229,7 @@ While this is not a replacement for tests, it is an obvious way to tell if our c
 <div class="sect2">
 <h3 id="parse-user-input"><a class="link" href="#parse-user-input">Parse user input</a></h3>
 <div class="paragraph">
-<p>Now let&#8217;s move on to writing a parser that will extract the index and remark from the input provided by the user.</p>
+<p>Now let&#8217;s move on to writing a parser that will extract the index and visitList from the input provided by the user.</p>
 </div>
 <div class="paragraph">
 <p>Create a <code>RemarkCommandParser</code> class in the <code>seedu.address.logic.parser</code> package.
@@ -237,7 +237,7 @@ The class must extend the <code>Parser</code> interface.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/add-remark/ParserInterface.png" alt="ParserInterface">
+<img src="../images/add-visitList/ParserInterface.png" alt="ParserInterface">
 </div>
 <div class="title">Figure 3. The relationship between Parser and RemarkCommandParser</div>
 </div>
@@ -280,7 +280,7 @@ Let&#8217;s look through <code>ArgumentMultimap</code> :</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This appears to be what we need to get a String of the remark.
+<p>This appears to be what we need to get a String of the visitList.
 But what about the Index? Taking a quick peek at existing an <code>Command</code>&#8230;&#8203;</p>
 </div>
 <div class="listingblock">
@@ -312,9 +312,9 @@ But what about the Index? Taking a quick peek at existing an <code>Command</code
             RemarkCommand.MESSAGE_USAGE), ive);
     }
 
-    <span class="predefined-type">String</span> remark = argMultimap.getValue(PREFIX_REMARK).orElse(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
+    <span class="predefined-type">String</span> visitList = argMultimap.getValue(PREFIX_REMARK).orElse(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
 
-    <span class="keyword">return</span> <span class="keyword">new</span> RemarkCommand(index, remark);
+    <span class="keyword">return</span> <span class="keyword">new</span> RemarkCommand(index, visitList);
 }</code></pre>
 </div>
 </div>
@@ -343,7 +343,7 @@ Don&#8217;t forget to update <code>AddressBookParser</code> to use our new <code
 <p>Now that we have all the information that we need, let&#8217;s lay the groundwork for some <em>persistent</em> changes.
 We achieve that by working with the <code>Person</code> model.
 Each field in a Person is implemented as a separate class (e.g. a <code>Name</code> object represents the person&#8217;s name).
-That means we should add a <code>Remark</code> class so that we can use a <code>Remark</code> object to represent a remark given to a person.</p>
+That means we should add a <code>Remark</code> class so that we can use a <code>Remark</code> object to represent a visitList given to a person.</p>
 </div>
 <div class="sect2">
 <h3 id="add-a-new-code-remark-code-class"><a class="link" href="#add-a-new-code-remark-code-class">Add a new <code>Remark</code> class</a></h3>
@@ -365,7 +365,7 @@ These should be relatively simple changes.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="add-a-placeholder-element-for-remark-to-the-ui"><a class="link" href="#add-a-placeholder-element-for-remark-to-the-ui">Add a placeholder element for remark to the UI</a></h2>
+<h2 id="add-a-placeholder-element-for-visitlist-to-the-ui"><a class="link" href="#add-a-placeholder-element-for-visitlist-to-the-ui">Add a placeholder element for visitList to the UI</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Without getting too deep into <code>fxml</code>, let&#8217;s go on a 5 minute adventure to get some placeholder text to show up for each person.</p>
@@ -377,7 +377,7 @@ These should be relatively simple changes.</p>
 <div class="title">PersonCard.java</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>@FXML
-private Label remark;</code></pre>
+private Label visitList;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -390,7 +390,7 @@ It might sound like Greek to you right now, don&#8217;t worry&#8201;&#8212;&#820
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;Label fx:id="remark" styleClass="cell_small_label" text="\$remark" /&gt;</code></pre>
+<pre class="CodeRay highlight"><code>&lt;Label fx:id="visitList" styleClass="cell_small_label" text="\$visitList" /&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -401,9 +401,9 @@ It might sound like Greek to you right now, don&#8217;t worry&#8201;&#8212;&#820
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/add-remark/$Remark.png" alt="$Remark">
+<img src="../images/add-visitList/$Remark.png" alt="$Remark">
 </div>
-<div class="title">Figure 4. $remark shows up in each entry</div>
+<div class="title">Figure 4. $visitList shows up in each entry</div>
 </div>
 </div>
 </div>
@@ -485,15 +485,15 @@ Not doing so will cause AddressBook to default to an empty address book!
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> PersonCard(Person person, <span class="type">int</span> displayedIndex) {
     <span class="comment">//...</span>
-    remark.setText(person.getRemark().value);
+    visitList.setText(person.getRemark().value);
 }</code></pre>
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/add-remark/RemarkBound.png" alt="RemarkBound">
+<img src="../images/add-visitList/RemarkBound.png" alt="RemarkBound">
 </div>
-<div class="title">Figure 5. The remark label is bound properly!</div>
+<div class="title">Figure 5. The visitList label is bound properly!</div>
 </div>
 </div>
 </div>
@@ -514,8 +514,8 @@ Since all fields in a <code>Person</code> are immutable, we create a new instanc
 <div class="title">RemarkCommand.java</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="comment">//...</span>
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_ADD_REMARK_SUCCESS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Added remark to Person: %1$s</span><span class="delimiter">&quot;</span></span>;
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_DELETE_REMARK_SUCCESS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Removed remark from Person: %1$s</span><span class="delimiter">&quot;</span></span>;
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_ADD_REMARK_SUCCESS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Added visitList to Person: %1$s</span><span class="delimiter">&quot;</span></span>;
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_DELETE_REMARK_SUCCESS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Removed visitList from Person: %1$s</span><span class="delimiter">&quot;</span></span>;
 <span class="comment">//...</span>
     <span class="annotation">@Override</span>
     <span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
@@ -527,7 +527,7 @@ Since all fields in a <code>Person</code> are immutable, we create a new instanc
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = <span class="keyword">new</span> Person(personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
-                personToEdit.getAddress(), remark, personToEdit.getTags());
+                personToEdit.getAddress(), visitList, personToEdit.getTags());
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
@@ -536,11 +536,11 @@ Since all fields in a <code>Person</code> are immutable, we create a new instanc
     }
 
     <span class="comment">/**
-     * Generates a command execution success message based on whether the remark is added to or removed from
+     * Generates a command execution success message based on whether the visitList is added to or removed from
      * {@code personToEdit}.
      */</span>
     <span class="directive">private</span> <span class="predefined-type">String</span> generateSuccessMessage(Person personToEdit) {
-        <span class="predefined-type">String</span> message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
+        <span class="predefined-type">String</span> message = !visitList.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
         <span class="keyword">return</span> <span class="predefined-type">String</span>.format(message, personToEdit);
     }</code></pre>
 </div>
@@ -550,7 +550,7 @@ Since all fields in a <code>Person</code> are immutable, we create a new instanc
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/add-remark/RemarkComplete.png" alt="RemarkComplete">
+<img src="../images/add-visitList/RemarkComplete.png" alt="RemarkComplete">
 </div>
 <div class="title">Figure 6. Congratulations!</div>
 </div>
@@ -577,12 +577,12 @@ code bases where a change might lead to unintended behavior.</p>
 An example would be <code>execute_filteredList_success</code>.</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s create a test for <code>RemarkCommand#execute()</code> to test that adding a remark works.
+<p>Let&#8217;s create a test for <code>RemarkCommand#execute()</code> to test that adding a visitList works.
 On <code>IntelliJ IDEA</code> you can bring up the context menu and choose to <code>Go To</code> &gt; <code>Test</code> or use the appropriate keyboard shortcut.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/add-remark/ContextMenu.png" alt="ContextMenu" width="1223px" height="267px">
+<img src="../images/add-visitList/ContextMenu.png" alt="ContextMenu" width="1223px" height="267px">
 </div>
 <div class="title">Figure 7. Using the context menu to jump to tests</div>
 </div>
@@ -591,7 +591,7 @@ On <code>IntelliJ IDEA</code> you can bring up the context menu and choose to <c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/add-remark/CreateTest.png" alt="CreateTest" width="664px" height="751px">
+<img src="../images/add-visitList/CreateTest.png" alt="CreateTest" width="664px" height="751px">
 </div>
 <div class="title">Figure 8. Creating a test for <code>execute</code>.</div>
 </div>
@@ -616,4 +616,4 @@ In this case, <code>CommandTestUtil#assertCommandSuccess</code> is the best fit 
 <p>This concludes the tutorial for adding a new <code>Command</code> to AddressBook.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-07 04:58:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-09 08:52:13 UTC</div></div></div></body></html>
