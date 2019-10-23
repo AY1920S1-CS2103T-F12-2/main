@@ -29,32 +29,37 @@
 <li><a href="#clearing-all-patient-data-code-clear-code">3.2.6. Clearing all patient data : <code>clear</code></a></li>
 </ul>
 </li>
-<li><a href="#strong-viewing-and-managing-visits-strong">3.3. <strong>Viewing and Managing Visits</strong></a>
+<li><a href="#setting-shorthand-commands-code-alias-code">3.3. Setting shorthand commands: <code>alias</code></a></li>
+<li><a href="#deleting-shorthand-commands-code-unalias-code">3.4. Deleting shorthand commands: <code>unalias</code></a></li>
+<li><a href="#showing-all-existing-aliases-code-showalias-code">3.5. Showing all existing aliases: <code>showalias</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#viewing-full-profile-code-profile-code">3.7. Viewing Full Profile : <code>profile</code></a></li>
+<li><a href="#strong-viewing-and-managing-visits-strong">3.8. <strong>Viewing and Managing Visits</strong></a>
 <ul class="sectlevel3">
-<li><a href="#viewing-full-profile-code-profile-code">3.3.1. Viewing Full Profile : <code>profile</code></a></li>
-<li><a href="#adding-a-new-visitation-report-for-a-patient-code-addvisit-code">3.3.2. Adding a new visitation report for a patient : <code>addvisit</code></a></li>
-<li><a href="#editing-the-particulars-of-a-visitation-report-code-editvisit-code">3.3.3. Editing the particulars of a visitation report : <code>editvisit</code></a></li>
-<li><a href="#deleting-a-visitation-report-code-deletevisit-code">3.3.4. Deleting a visitation report : <code>deletevisit</code></a></li>
+<li><a href="#viewing-full-profile-code-profile-code-2">3.8.1. Viewing Full Profile : <code>profile</code></a></li>
+<li><a href="#adding-a-new-visitation-report-for-a-patient-code-addvisit-code">3.8.2. Adding a new visitation report for a patient : <code>addvisit</code></a></li>
+<li><a href="#editing-the-particulars-of-a-visitation-report-code-editvisit-code">3.8.3. Editing the particulars of a visitation report : <code>editvisit</code></a></li>
+<li><a href="#deleting-a-visitation-report-code-deletevisit-code">3.8.4. Deleting a visitation report : <code>deletevisit</code></a></li>
 </ul>
 </li>
-<li><a href="#strong-follow-ups-and-reminders-strong">3.4. <strong>Follow-Ups and Reminders</strong></a>
+<li><a href="#strong-follow-ups-and-reminders-strong">3.9. <strong>Follow-Ups and Reminders</strong></a>
 <ul class="sectlevel3">
-<li><a href="#adding-a-follow-up-reminder-with-patient-code-followup-code">3.4.1. Adding a follow-up reminder with patient : <code>followup</code></a></li>
-<li><a href="#creating-a-generic-reminder-code-reminder-code">3.4.2. Creating a generic reminder : <code>reminder</code></a></li>
+<li><a href="#adding-a-follow-up-reminder-with-patient-code-followup-code">3.9.1. Adding a follow-up reminder with patient : <code>followup</code></a></li>
+<li><a href="#creating-a-generic-reminder-code-reminder-code">3.9.2. Creating a generic reminder : <code>reminder</code></a></li>
 </ul>
 </li>
-<li><a href="#strong-optimization-for-command-line-interface-cli-users-strong">3.5. <strong>Optimization for Command-Line Interface (CLI) Users</strong></a>
+<li><a href="#strong-optimization-for-command-line-interface-cli-users-strong">3.10. <strong>Optimization for Command-Line Interface (CLI) Users</strong></a>
 <ul class="sectlevel3">
-<li><a href="#setting-a-shorthand-command-alias-code-alias-code">3.5.1. Setting a shorthand command / alias : <code>alias</code></a></li>
-<li><a href="#deleting-a-shorthand-commands-alias-code-deletealias-code">3.5.2. Deleting a shorthand commands / alias : <code>deletealias</code></a></li>
+<li><a href="#setting-a-shorthand-command-alias-code-alias-code">3.10.1. Setting a shorthand command / alias : <code>alias</code></a></li>
+<li><a href="#deleting-a-shorthand-commands-alias-code-deletealias-code">3.10.2. Deleting a shorthand commands / alias : <code>deletealias</code></a></li>
 </ul>
 </li>
-<li><a href="#strong-saving-the-data-strong">3.6. <strong>Saving the data</strong></a></li>
-<li><a href="#strong-upcoming-features-strong">3.7. <strong>Upcoming Features</strong></a>
+<li><a href="#strong-saving-the-data-strong">3.11. <strong>Saving the data</strong></a></li>
+<li><a href="#strong-upcoming-features-strong">3.12. <strong>Upcoming Features</strong></a>
 <ul class="sectlevel3">
-<li><a href="#inventory-system-code-coming-in-v2-0-code">3.7.1. Inventory System <code>[Coming in v2.0]</code></a></li>
-<li><a href="#printing-of-medical-certificates-code-coming-in-v2-0-code">3.7.2. Printing of Medical Certificates <code>[Coming in v2.0]</code></a></li>
-<li><a href="#microsoft-azure-integration-code-coming-in-v2-0-code">3.7.3. Microsoft Azure Integration <code>[Coming in v2.0]</code></a></li>
+<li><a href="#inventory-system-code-coming-in-v2-0-code">3.12.1. Inventory System <code>[Coming in v2.0]</code></a></li>
+<li><a href="#printing-of-medical-certificates-code-coming-in-v2-0-code">3.12.2. Printing of Medical Certificates <code>[Coming in v2.0]</code></a></li>
+<li><a href="#microsoft-azure-integration-code-coming-in-v2-0-code">3.12.3. Microsoft Azure Integration <code>[Coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -363,6 +368,75 @@ Deletes the 1st patient in the results of the <code>find</code> command.</p>
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-shorthand-commands-code-alias-code"><a class="link" href="#setting-shorthand-commands-code-alias-code">3.3. Setting shorthand commands: <code>alias</code></a></h3>
+<div class="paragraph">
+<p>Set an alias for a command to do shorthand.<br>
+Format: <code>alias l/[SHORTHAND] v/[COMMAND]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alias l/ls v/list</code><br>
+Typing <code>ls</code> now works equivalently as <code>list</code>.</p>
+</li>
+<li>
+<p><code>alias l/h v/help</code><br>
+Typing <code>h</code> now works equivalently as <code>help</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-shorthand-commands-code-unalias-code"><a class="link" href="#deleting-shorthand-commands-code-unalias-code">3.4. Deleting shorthand commands: <code>unalias</code></a></h3>
+<div class="paragraph">
+<p>Delete a existing alias.<br>
+Format: <code>unalias [SHORTHAND]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unalias ls</code><br>
+Typing <code>ls</code> is no longer equivalent to <code>list</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="showing-all-existing-aliases-code-showalias-code"><a class="link" href="#showing-all-existing-aliases-code-showalias-code">3.5. Showing all existing aliases: <code>showalias</code></a></h3>
+<div class="paragraph">
+<p>Show all existing aliases.<br>
+Format: <code>showalias</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>showalias</code><br>
+Shows all the existing aliases.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the address book.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-full-profile-code-profile-code"><a class="link" href="#viewing-full-profile-code-profile-code">3.7. Viewing Full Profile : <code>profile</code></a></h3>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -376,14 +450,13 @@ Be careful when entering this, as this will erase all patient data from VISIT!
 </table>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="strong-viewing-and-managing-visits-strong"><a class="link" href="#strong-viewing-and-managing-visits-strong">3.3. <strong>Viewing and Managing Visits</strong></a></h3>
+<h3 id="strong-viewing-and-managing-visits-strong"><a class="link" href="#strong-viewing-and-managing-visits-strong">3.8. <strong>Viewing and Managing Visits</strong></a></h3>
 <div class="paragraph">
 <p>VISIT enables doctors to also track the visitations for each patient, allowing the specification of diagnosis, medications prescribed as well as other general comments per visit.</p>
 </div>
 <div class="sect3">
-<h4 id="viewing-full-profile-code-profile-code"><a class="link" href="#viewing-full-profile-code-profile-code">3.3.1. Viewing Full Profile : <code>profile</code></a></h4>
+<h4 id="viewing-full-profile-code-profile-code-2"><a class="link" href="#viewing-full-profile-code-profile-code-2">3.8.1. Viewing Full Profile : <code>profile</code></a></h4>
 <div class="paragraph">
 <p>Opens up a new pop-out panel showing the specified patient’s details (Name, Phone, Email, Address, Tags, Visitation reports). The panel can then be closed by pressing q to quit, or p to generate a text file of the profile.<br>
 Format: <code>profile INDEX</code></p>
@@ -421,7 +494,7 @@ Opens up a pop-up panel detailing the profile of the patient with the index of 2
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-new-visitation-report-for-a-patient-code-addvisit-code"><a class="link" href="#adding-a-new-visitation-report-for-a-patient-code-addvisit-code">3.3.2. Adding a new visitation report for a patient : <code>addvisit</code></a></h4>
+<h4 id="adding-a-new-visitation-report-for-a-patient-code-addvisit-code"><a class="link" href="#adding-a-new-visitation-report-for-a-patient-code-addvisit-code">3.8.2. Adding a new visitation report for a patient : <code>addvisit</code></a></h4>
 <div class="paragraph">
 <p>Opens a pop-up panel that enables the specification of a new visitation report for a particular patient.<br>
 Format: <code>addvisit INDEX [v/DATE]</code></p>
@@ -462,7 +535,7 @@ Adds new visitation report dated 19th of October 2019, will be added for the pat
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-the-particulars-of-a-visitation-report-code-editvisit-code"><a class="link" href="#editing-the-particulars-of-a-visitation-report-code-editvisit-code">3.3.3. Editing the particulars of a visitation report : <code>editvisit</code></a></h4>
+<h4 id="editing-the-particulars-of-a-visitation-report-code-editvisit-code"><a class="link" href="#editing-the-particulars-of-a-visitation-report-code-editvisit-code">3.8.3. Editing the particulars of a visitation report : <code>editvisit</code></a></h4>
 <div class="paragraph">
 <p>Opens a pop-up panel that enables the editing of an existing visitation report of a particular patient.<br>
 Format: <code>editvisit INDEX [i/REPORT INDEX]</code></p>
@@ -496,7 +569,7 @@ A panel will appear to allow for the amendment of the 1st visitation report of t
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-visitation-report-code-deletevisit-code"><a class="link" href="#deleting-a-visitation-report-code-deletevisit-code">3.3.4. Deleting a visitation report : <code>deletevisit</code></a></h4>
+<h4 id="deleting-a-visitation-report-code-deletevisit-code"><a class="link" href="#deleting-a-visitation-report-code-deletevisit-code">3.8.4. Deleting a visitation report : <code>deletevisit</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specified visitation report.<br>
 Format: <code>deletevisit INDEX [d/REPORT INDEX]</code></p>
@@ -531,12 +604,12 @@ The 1st visitation report of the person at index 1 will be deleted.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-follow-ups-and-reminders-strong"><a class="link" href="#strong-follow-ups-and-reminders-strong">3.4. <strong>Follow-Ups and Reminders</strong></a></h3>
+<h3 id="strong-follow-ups-and-reminders-strong"><a class="link" href="#strong-follow-ups-and-reminders-strong">3.9. <strong>Follow-Ups and Reminders</strong></a></h3>
 <div class="paragraph">
 <p>VISIT also enables doctors to keep abreast and up-to-date on any events or deadlines as VISIT can be customized to remind them of any follow-up appointments or other timed reminders.</p>
 </div>
 <div class="sect3">
-<h4 id="adding-a-follow-up-reminder-with-patient-code-followup-code"><a class="link" href="#adding-a-follow-up-reminder-with-patient-code-followup-code">3.4.1. Adding a follow-up reminder with patient : <code>followup</code></a></h4>
+<h4 id="adding-a-follow-up-reminder-with-patient-code-followup-code"><a class="link" href="#adding-a-follow-up-reminder-with-patient-code-followup-code">3.9.1. Adding a follow-up reminder with patient : <code>followup</code></a></h4>
 <div class="paragraph">
 <p>Adds a follow-up reminder for a particular patient, which will generate a prompt after a set number of days when VISIT is run.<br>
 Format: <code>followup INDEX [d/DAYS]</code></p>
@@ -566,7 +639,7 @@ Creates a follow-up entry on patient with index 9 for 10 days later.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-a-generic-reminder-code-reminder-code"><a class="link" href="#creating-a-generic-reminder-code-reminder-code">3.4.2. Creating a generic reminder : <code>reminder</code></a></h4>
+<h4 id="creating-a-generic-reminder-code-reminder-code"><a class="link" href="#creating-a-generic-reminder-code-reminder-code">3.9.2. Creating a generic reminder : <code>reminder</code></a></h4>
 <div class="paragraph">
 <p>Creates a new reminder to show up when the program is launched.<br>
 Format: <code>reminder TEXT [d/DAYS]</code></p>
@@ -597,12 +670,12 @@ Creates a reminder “Two Point Hospital closed” that will display at launch f
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-optimization-for-command-line-interface-cli-users-strong"><a class="link" href="#strong-optimization-for-command-line-interface-cli-users-strong">3.5. <strong>Optimization for Command-Line Interface (CLI) Users</strong></a></h3>
+<h3 id="strong-optimization-for-command-line-interface-cli-users-strong"><a class="link" href="#strong-optimization-for-command-line-interface-cli-users-strong">3.10. <strong>Optimization for Command-Line Interface (CLI) Users</strong></a></h3>
 <div class="paragraph">
 <p>VISIT being an application optimized for doctors who are comfortable with CLI, has support for features such as aliasing for commands to enable command entries which are often used to be stored and used quickly and easily.</p>
 </div>
 <div class="sect3">
-<h4 id="setting-a-shorthand-command-alias-code-alias-code"><a class="link" href="#setting-a-shorthand-command-alias-code-alias-code">3.5.1. Setting a shorthand command / alias : <code>alias</code></a></h4>
+<h4 id="setting-a-shorthand-command-alias-code-alias-code"><a class="link" href="#setting-a-shorthand-command-alias-code-alias-code">3.10.1. Setting a shorthand command / alias : <code>alias</code></a></h4>
 <div class="paragraph">
 <p>Set an alias for a command to enable faster command entry for a customized input.<br>
 Format: <code>alias l/SHORTHAND v/COMMAND</code></p>
@@ -624,7 +697,7 @@ Typing <code>show all patients</code> now works equivalently as typing <code>lis
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-shorthand-commands-alias-code-deletealias-code"><a class="link" href="#deleting-a-shorthand-commands-alias-code-deletealias-code">3.5.2. Deleting a shorthand commands / alias : <code>deletealias</code></a></h4>
+<h4 id="deleting-a-shorthand-commands-alias-code-deletealias-code"><a class="link" href="#deleting-a-shorthand-commands-alias-code-deletealias-code">3.10.2. Deleting a shorthand commands / alias : <code>deletealias</code></a></h4>
 <div class="paragraph">
 <p>Delete an existing alias.<br>
 Format: <code>deletealias SHORTHAND</code></p>
@@ -643,19 +716,19 @@ Typing <code>ls</code> will no longer be equivalent to typing <code>list</code>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-saving-the-data-strong"><a class="link" href="#strong-saving-the-data-strong">3.6. <strong>Saving the data</strong></a></h3>
+<h3 id="strong-saving-the-data-strong"><a class="link" href="#strong-saving-the-data-strong">3.11. <strong>Saving the data</strong></a></h3>
 <div class="paragraph">
 <p>VISIT&#8217;s address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-upcoming-features-strong"><a class="link" href="#strong-upcoming-features-strong">3.7. <strong>Upcoming Features</strong></a></h3>
+<h3 id="strong-upcoming-features-strong"><a class="link" href="#strong-upcoming-features-strong">3.12. <strong>Upcoming Features</strong></a></h3>
 <div class="paragraph">
 <p>The following features are intended for a later release of VISIT that will further expand on the managing power doctors will be able to execute using the application.</p>
 </div>
 <div class="sect3">
-<h4 id="inventory-system-code-coming-in-v2-0-code"><a class="link" href="#inventory-system-code-coming-in-v2-0-code">3.7.1. Inventory System <code>[Coming in v2.0]</code></a></h4>
+<h4 id="inventory-system-code-coming-in-v2-0-code"><a class="link" href="#inventory-system-code-coming-in-v2-0-code">3.12.1. Inventory System <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>VISIT v2.0 will include an inventory system for doctors to manage and organise their medical stores.
 Doctors will be able to generate the list of medication in their stock and assign them to patients using the app
@@ -664,13 +737,13 @@ Warnings of low stocks are also an intended feature.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="printing-of-medical-certificates-code-coming-in-v2-0-code"><a class="link" href="#printing-of-medical-certificates-code-coming-in-v2-0-code">3.7.2. Printing of Medical Certificates <code>[Coming in v2.0]</code></a></h4>
+<h4 id="printing-of-medical-certificates-code-coming-in-v2-0-code"><a class="link" href="#printing-of-medical-certificates-code-coming-in-v2-0-code">3.12.2. Printing of Medical Certificates <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>In v2.0, VISIT will allow doctors to easily print an official Medical Certificate with a single command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="microsoft-azure-integration-code-coming-in-v2-0-code"><a class="link" href="#microsoft-azure-integration-code-coming-in-v2-0-code">3.7.3. Microsoft Azure Integration <code>[Coming in v2.0]</code></a></h4>
+<h4 id="microsoft-azure-integration-code-coming-in-v2-0-code"><a class="link" href="#microsoft-azure-integration-code-coming-in-v2-0-code">3.12.3. Microsoft Azure Integration <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Microsoft Azure is a popular Cloud Computing platform that allows for data analysis, remote deployment and user
 authentication resources. We plan to leverage this power in VISIT v2.0 so that doctors may securely access
@@ -792,4 +865,4 @@ e.g. <code>deletealias show all patients</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 10:06:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 18:11:11 UTC</div></div></div></body></html>
