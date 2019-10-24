@@ -23,11 +23,12 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#alias-feature">3.1. Alias feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#visitation-report-feature">3.4. Visitation Report feature</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#follow-up-and-reminders-feature">3.2. Follow-up and Reminders feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#visitation-report-feature">3.5. Visitation Report feature</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -421,9 +422,42 @@ An unfortunate side effect to matching the longest matching macro increases the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="follow-up-and-reminders-feature"><a class="link" href="#follow-up-and-reminders-feature">3.2. Follow-up and Reminders feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.2.1. Proposed Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>Both mechanisms are facilitated by the <code>Reminder</code> class.</p>
+</div>
+<div class="paragraph">
+<p>It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Reminder#addReminder(reminder)</code>&#8201;&#8212;&#8201;Adds a new reminder.</p>
+</li>
+<li>
+<p><code>Reminder#getReminders()</code>&#8201;&#8212;&#8201;Retrieves the reminders for output.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addReminder(reminder)</code> and <code>Model#getReminders()</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how adding a follow-up or reminder works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddReminderSequenceDiagram.png" alt="AddReminderSequenceDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.3.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -565,7 +599,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -635,15 +669,15 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="visitation-report-feature"><a class="link" href="#visitation-report-feature">3.4. Visitation Report feature</a></h3>
+<h3 id="visitation-report-feature"><a class="link" href="#visitation-report-feature">3.5. Visitation Report feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.4.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The Visitation Report feature allows the user to <code>add</code>, <code>delete</code> and <code>edit</code> a <code>VisitReport</code> such that for every housecall, information like the prescription and diagnosis can be stored. Every <code>Person</code> has a <code>VisitList</code> attribute and each <code>VisitList</code> object contains an arraylist of <code>VisitReport</code> objects. The feature is facillitated by <code>VisitRecordWindow</code> which creates a form for the user to key in the details of the report, <code>VisitListPanel</code> which creates an indexed pop up list of visit reports for the user to check the index of the report they want to edit/delete and <code>SaveVisitCommand</code> which saves the users input from the form. The following operations are also implemented:</p>
 </div>
@@ -731,7 +765,7 @@ If the user executes <code>deletevisit 1</code> instead, the index value will be
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-savevisitcommand-deletevisitcommand-executes"><a class="link" href="#aspect-how-savevisitcommand-deletevisitcommand-executes">Aspect: How SaveVisitCommand/DeleteVisitCommand executes</a></h5>
 <div class="ulist">
@@ -775,14 +809,14 @@ If the user executes <code>deletevisit 1</code> instead, the index value will be
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -813,7 +847,7 @@ If the user executes <code>deletevisit 1</code> instead, the index value will be
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -929,14 +963,20 @@ If the user executes <code>deletevisit 1</code> instead, the index value will be
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set follow-up reminders</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check in on my patients after some time or when their medication runs out</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have daily reminders of important deadlines</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of appointments and visitations easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">set follow-up reminders</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">check in on my patients after some time or when their medication runs out</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see list of reminders</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of what I need to keep track</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1344,43 +1384,6 @@ Use case resumes at step 1.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-view-reminders" class="discrete">Use case: View reminders</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User starts up AddressBook</p>
-</li>
-<li>
-<p>Reminders are displayed</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2. No reminders are set to show</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. AddressBook shows no reminder message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-view-follow-up-reminders" class="discrete">Use case: View follow-up reminders</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1408,7 +1411,81 @@ Use case resumes at step 1.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. AddressBook shows no reminder message.</p>
+<p>2a. AddressBook shows no reminder message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-view-reminders" class="discrete">Use case: View reminders</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User starts up AddressBook</p>
+</li>
+<li>
+<p>Reminders are displayed</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2. No reminders are set to show</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. AddressBook shows no reminder message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-open-message-of-the-day" class="discrete">Use case: Open Message of the Day</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to open Message of the Day</p>
+</li>
+<li>
+<p>Message of the Day prompt opens with Follow-Up and Reminders details</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2. No follow-up or reminders active</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. Message of the Day window shows no active follow-up or reminders</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1575,4 +1652,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 18:11:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 02:16:36 UTC</div></div></div></body></html>
