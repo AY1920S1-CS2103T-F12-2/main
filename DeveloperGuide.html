@@ -567,6 +567,14 @@ The user is able to close the <code>ProfileWindow</code> form by clicking the 'x
 </ul>
 </div>
 <div class="paragraph">
+<p>The class diagram below shows the new additions to the Person class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/VisitClass0.png" alt="VisitClass0">
+</div>
+</div>
+<div class="paragraph">
 <p>Given below is an example usage scenario and how every component of the Visitation Report feature behaves at each step.</p>
 </div>
 <div class="paragraph">
@@ -614,6 +622,14 @@ If the user executes <code>editvisit 1</code> instead, a <code>CommandResult</co
 </div>
 <div class="paragraph">
 <p>Step 4. The user edits the form and presses <code>f2</code> on the keyboard or clicks the <code>submit</code> button to save the changes. The same mechanism mentioned in <code>Step 2</code> is used to update the contents of the edited visit report.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows how Step 3 and Step 4 works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditVisit1.png" alt="EditVisit1">
+</div>
 </div>
 <div class="paragraph">
 <p>Step 5. The user then decides that the report was beyond salvaging and decides to delete it. Executing the command <code>deletevisit 1 d/1</code>, <code>VisitList#deleteRecord()</code> deletes the entry from the arraylist and <code>Model#setPerson()</code> updates the person with the new <code>VisitList</code>. The <code>CommandResult#isShowVisitList()</code> check in  <code>MainWindow#executeCommand()</code> passes and a pop up list showing an indexed list of all visitation records of the person is displayed.</p>
@@ -1578,4 +1594,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 04:16:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 02:36:26 UTC</div></div></div></body></html>
