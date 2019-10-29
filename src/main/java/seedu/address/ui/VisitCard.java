@@ -2,7 +2,6 @@ package seedu.address.ui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.person.VisitReport;
@@ -41,7 +40,7 @@ public class VisitCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(report.getName());
         date.setText("Visit Date: " + report.date);
-        if (report.getRemarks() == null || report.getRemarks().isEmpty()){
+        if (report.getRemarks() == null || report.getRemarks().isEmpty()) {
             remarks.setText("Remarks:\nnone");
         } else {
             remarks.setText("Remarks:\n" + report.getRemarks());
