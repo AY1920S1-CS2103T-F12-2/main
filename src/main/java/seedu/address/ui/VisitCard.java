@@ -34,16 +34,18 @@ public class VisitCard extends UiPart<Region> {
     private Label date;
     @FXML
     private Label remarks;
-    @FXML
-    private FlowPane tags;
 
     public VisitCard(VisitReport report, int displayedIndex) {
         super(FXML);
         this.report = report;
         id.setText(displayedIndex + ". ");
         name.setText(report.getName());
-        date.setText(report.date);
-        remarks.setText(report.getRemarks());
+        date.setText("Visit Date: " + report.date);
+        if (report.getRemarks() == null || report.getRemarks().isEmpty()){
+            remarks.setText("Remarks:\nnone");
+        } else {
+            remarks.setText("Remarks:\n" + report.getRemarks());
+        }
     }
 
     @Override
