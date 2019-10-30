@@ -27,7 +27,7 @@
             </Label>
          <HBox alignment="CENTER_LEFT">
             <children>
-               <Label fx:id="userGuideURL" text="Label">
+               <Label fx:id="userGuideUrl" text="Label">
                   <HBox.margin>
                      <Insets right="5.0" />
                   </HBox.margin>
