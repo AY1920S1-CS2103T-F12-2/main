@@ -37,11 +37,13 @@
 <li><a href="#deleting-a-visitation-report-code-deletevisit-code">3.3.3. Deleting a visitation report : <code>deletevisit</code></a></li>
 </ul>
 </li>
-<li><a href="#strong-follow-ups-and-reminders-strong">3.4. <strong>Follow-Ups and Reminders</strong></a>
+<li><a href="#strong-appointment-system-strong">3.4. <strong>Appointment System</strong></a>
 <ul class="sectlevel3">
-<li><a href="#adding-a-follow-up-reminder-with-patient-code-followup-code">3.4.1. Adding a follow-up reminder with patient : <code>followup</code></a></li>
+<li><a href="#adding-a-follow-up-visit-with-patient-code-followup-code">3.4.1. Adding a follow-up visit with patient : <code>followup</code></a></li>
 <li><a href="#creating-a-generic-reminder-code-reminder-code">3.4.2. Creating a generic reminder : <code>reminder</code></a></li>
-<li><a href="#show-message-of-the-day-box-code-show-code">3.4.3. Show Message of the Day box : <code>show</code></a></li>
+<li><a href="#removing-an-appointment-code-removeappt-code">3.4.3. Removing an Appointment : <code>removeappt</code></a></li>
+<li><a href="#show-appointments-message-of-the-day-box-code-show-code">3.4.4. Show Appointments "Message of the Day" box : <code>show</code></a></li>
+<li><a href="#sort-appointments-code-sort-code">3.4.5. Sort Appointments : <code>sort</code></a></li>
 </ul>
 </li>
 <li><a href="#strong-optimization-for-command-line-interface-cli-users-strong">3.5. <strong>Optimization for Command-Line Interface (CLI) Users</strong></a>
@@ -67,7 +69,7 @@
 <li><a href="#strong-application-commands-strong-2">5.1. <strong>Application Commands</strong></a></li>
 <li><a href="#strong-viewing-and-managing-patients-strong-2">5.2. <strong>Viewing and Managing Patients</strong></a></li>
 <li><a href="#strong-viewing-and-managing-visits-strong-2">5.3. <strong>Viewing and Managing Visits</strong></a></li>
-<li><a href="#strong-follow-ups-and-reminders-strong-2">5.4. <strong>Follow-Ups and Reminders</strong></a></li>
+<li><a href="#strong-appointment-system-strong-2">5.4. <strong>Appointment System</strong></a></li>
 <li><a href="#strong-optimization-for-command-line-interface-cli-users-strong-2">5.5. <strong>Optimization for Command-Line Interface (CLI) Users</strong></a></li>
 </ul>
 </li>
@@ -703,18 +705,21 @@ An error will be thrown if the report with the given report index does not exist
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-follow-ups-and-reminders-strong"><a class="link" href="#strong-follow-ups-and-reminders-strong">3.4. <strong>Follow-Ups and Reminders</strong></a></h3>
+<h3 id="strong-appointment-system-strong"><a class="link" href="#strong-appointment-system-strong">3.4. <strong>Appointment System</strong></a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>VISIT also enables doctors to keep abreast and up-to-date on any events or deadlines as VISIT can be customized to remind them of any follow-up appointments or other timed reminders.</p>
+<p>VISIT also enables doctors to keep abreast and up-to-date on any events or deadlines as VISIT can be customized to remind them of any follow-up visits or other timed reminders.</p>
+</div>
+<div class="paragraph">
+<p>There are two kinds of Appointments: Follow-Ups and Reminders.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-follow-up-reminder-with-patient-code-followup-code"><a class="link" href="#adding-a-follow-up-reminder-with-patient-code-followup-code">3.4.1. Adding a follow-up reminder with patient : <code>followup</code></a></h4>
+<h4 id="adding-a-follow-up-visit-with-patient-code-followup-code"><a class="link" href="#adding-a-follow-up-visit-with-patient-code-followup-code">3.4.1. Adding a follow-up visit with patient : <code>followup</code></a></h4>
 <div class="paragraph">
-<p>Adds a follow-up reminder for a particular patient, which will generate a prompt after a set number of days when VISIT is run.<br>
+<p>Adds a follow-up visit for a particular patient. The application will keep track of when your next appointment with the patient is on the Appointments window.<br>
 Format: <code>followup INDEX [d/DAYS]</code></p>
 </div>
 <div class="admonitionblock tip">
@@ -724,7 +729,7 @@ Format: <code>followup INDEX [d/DAYS]</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The follow-up entry will by default generate the prompt in 7 days if not specified.
+The follow-up entry will by default generate the follow-up for 7 days' time if not specified.
 </td>
 </tr>
 </table>
@@ -744,7 +749,7 @@ Creates a follow-up entry on patient with index 9 for 10 days later.</p>
 <div class="sect3">
 <h4 id="creating-a-generic-reminder-code-reminder-code"><a class="link" href="#creating-a-generic-reminder-code-reminder-code">3.4.2. Creating a generic reminder : <code>reminder</code></a></h4>
 <div class="paragraph">
-<p>Creates a new reminder to show up when the program is launched.<br>
+<p>Creates a new reminder to show up in the Appointments window.<br>
 Format: <code>reminder TEXT [d/DAYS]</code></p>
 </div>
 <div class="admonitionblock tip">
@@ -754,7 +759,7 @@ Format: <code>reminder TEXT [d/DAYS]</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The reminder entry will by default generate the prompt in 7 days if not specified.
+The reminder entry will by default generate the prompt for 7 days' time if not specified.
 </td>
 </tr>
 </table>
@@ -766,16 +771,57 @@ The reminder entry will by default generate the prompt in 7 days if not specifie
 <ul>
 <li>
 <p><code>reminder Two Point Hospital closed d/7</code><br>
-Creates a reminder “Two Point Hospital closed” that will display at launch for the next 7 days.</p>
+Creates a reminder "Two Point Hospital closed" that will display for the next 7 days.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="show-message-of-the-day-box-code-show-code"><a class="link" href="#show-message-of-the-day-box-code-show-code">3.4.3. Show Message of the Day box : <code>show</code></a></h4>
+<h4 id="removing-an-appointment-code-removeappt-code"><a class="link" href="#removing-an-appointment-code-removeappt-code">3.4.3. Removing an Appointment : <code>removeappt</code></a></h4>
 <div class="paragraph">
-<p>Shows a pop-up containing the message of the day text.<br>
+<p>Remove an appointment from VISIT. This can be either a Follow-up or Reminder.<br>
+Format: <code>removeappt DESCRIPTION [d/DAYS]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Any appointment matching just the description will be removed if the specific days is not specified.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Examples</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removeappt Two Point Hospital closed d/7</code><br>
+Removes an appointment which description is "Two Point Hospital Closed" and had 7 days remaining.</p>
+</li>
+<li>
+<p><code>removeappt Satya Nadella</code><br>
+Removes any appointments with the patient whose name is Satya Nadella.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-appointments-message-of-the-day-box-code-show-code"><a class="link" href="#show-appointments-message-of-the-day-box-code-show-code">3.4.4. Show Appointments "Message of the Day" box : <code>show</code></a></h4>
+<div class="paragraph">
+<p>Shows a pop-up containing the appointments. This is useful if you want to keep a small window just containing the appointments on the screen.<br>
 Format: <code>show</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-appointments-code-sort-code"><a class="link" href="#sort-appointments-code-sort-code">3.4.5. Sort Appointments : <code>sort</code></a></h4>
+<div class="paragraph">
+<p>Sorts the appointments in order of type, days remaining, and finally by name.<br>
+Format: <code>sort</code></p>
 </div>
 </div>
 </div>
@@ -967,7 +1013,7 @@ e.g. <code>deletevisit 1 d/1</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-follow-ups-and-reminders-strong-2"><a class="link" href="#strong-follow-ups-and-reminders-strong-2">5.4. <strong>Follow-Ups and Reminders</strong></a></h3>
+<h3 id="strong-appointment-system-strong-2"><a class="link" href="#strong-appointment-system-strong-2">5.4. <strong>Appointment System</strong></a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -979,7 +1025,14 @@ e.g. <code>followup 9 d/10</code></p>
 e.g. <code>reminder Two Point Hospital closed d/7</code></p>
 </li>
 <li>
-<p><strong>Show Message of the Day</strong> : <code>show</code></p>
+<p><strong>Removing an Appointment</strong> : <code>removeappt DESCRIPTION [d/DAYS]</code><br>
+e.g. <code>removeappt Two Point Hospital closed d/7</code></p>
+</li>
+<li>
+<p><strong>Show Appointments "Message of the Day" box</strong> : <code>show</code></p>
+</li>
+<li>
+<p><strong>Sort Appointments</strong> : <code>sort</code></p>
 </li>
 </ul>
 </div>
@@ -1003,4 +1056,4 @@ e.g. <code>unalias show all patients</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 15:36:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 00:42:19 UTC</div></div></div></body></html>

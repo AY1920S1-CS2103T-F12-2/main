@@ -270,7 +270,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores the Address Book data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> and <code>ObservableList&lt;Appointment&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list changes.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -426,7 +426,10 @@ An unfortunate side effect to matching the longest matching macro increases the 
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The Appointments feature comprises of Reminders and Follow-Ups. Both mechanisms are facilitated by the <code>AppointmentTable</code> class, with individual Appointment data stored in the <code>Appointment</code> class.</p>
+<p>The Appointments feature comprises of Reminders and Follow-Ups. Users can create a generic Reminder to be notified of an ongoing "something to take note of", such as a hospital being closed. Follow-ups are used to plan future visits to patients. Both Reminders and Follow-ups are represented by the <code>Appointment</code> class, but are facilitated by the <code>AppointmentList</code> class for UI updates and <code>AppointmentTable</code> class for JSON updating.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AppointmentList</code> and <code>AppointmentTable</code> are similar and run the same operations in parallel. This is a constraint due to how data is stored into JSON by the underlying program, and is on the timeline to be converged in v2.0. Due to their similarities, we will only look at <code>AppointmentTable</code> for the sake of this documentation.</p>
 </div>
 <div class="paragraph">
 <p>It implements the following operations:</p>
@@ -434,15 +437,33 @@ An unfortunate side effect to matching the longest matching macro increases the 
 <div class="ulist">
 <ul>
 <li>
-<p><code>AppointmentTable#addAppointment(appointment)</code>&#8201;&#8212;&#8201;Adds a new appointment.</p>
+<p><code>AppointmentTable#getDefaultAppointments()</code>&#8201;&#8212;&#8201;Returns a default, empty <code>AppointmentTable</code>.</p>
 </li>
 <li>
-<p><code>AppointmentTable#outputAppointments()</code>&#8201;&#8212;&#8201;Retrieves the appointments for output.</p>
+<p><code>AppointmentTable#getAppointmentList()</code>&#8201;&#8212;&#8201;Returns an <code>ObservableList</code> version of the Appointments for UI usage. This is necessary as <code>AppointmentTable</code> is loaded on launch and <code>AppointmentList</code> uses this data to propagate the UI.</p>
+</li>
+<li>
+<p><code>AppointmentTable#addAppointment(type, description, days)</code>&#8201;&#8212;&#8201;Adds a new Appointment.</p>
+</li>
+<li>
+<p><code>AppointmentTable#deleteAppointment(description, days)</code>&#8201;&#8212;&#8201;Deletes an appointment from VISIT.</p>
+</li>
+<li>
+<p><code>AppointmentTable#antiDuplicate(check, description, days)</code>&#8201;&#8212;&#8201;Checks if the Appointment already exists. Returns true if there is no duplicate, false if there is a duplicate.</p>
+</li>
+<li>
+<p><code>AppointmentTable#sortAppointments()</code>&#8201;&#8212;&#8201;Sorts the list of appointments by days remaining, then name.</p>
+</li>
+<li>
+<p><code>AppointmentTable#cascadeDay(days)</code>&#8201;&#8212;&#8201;Decrements the days an Appointment has left. Run on application launch by <code>UserPrefs</code> after calculating days elapsed.</p>
+</li>
+<li>
+<p><code>AppointmentTable#outputAppointments()</code>&#8201;&#8212;&#8201;Outputs the Appointments to readable String.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addAppointment(reminder)</code> and <code>Model#outputAppointments()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how adding a follow-up or reminder works:</p>
@@ -920,6 +941,18 @@ with a more pronounced color palette and a clearer font.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort my appointments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see the more pressing deadlines first</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove a specific appointment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get rid of an unnecessary reminder or visit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">generate a text file detailing my patient&#8217;s profile and visits</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">maintain a archive of patient profiles before deleting them</p></td>
 </tr>
@@ -937,34 +970,31 @@ with a more pronounced color palette and a clearer font.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>{<strong>TODO</strong> : Please update user stories if any new enhancements have been planned / made in your implementation. <strong>DELETE WHEN DONE</strong>}</p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>VISIT</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-delete-patient" class="discrete">Use case: Delete patient</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to list patients</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>System shows a list of patients</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User requests to delete a specific patient in the list</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>System deletes the patient</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -987,7 +1017,7 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. System shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1004,16 +1034,16 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to list patients</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>System shows a list of patients</p>
 </li>
 <li>
 <p>User requests to view patient profile by name/index</p>
 </li>
 <li>
-<p>AddressBook shows patient profile</p>
+<p>System shows patient profile</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1036,7 +1066,7 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. AddressBook shows an error message.</p>
+<p>3a. System shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1063,14 +1093,14 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Precondition: User can see list of persons</p>
+<p>Precondition: User can see list of patients</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>User requests to add new visitation record for a specific patient in the list</p>
 </li>
 <li>
-<p>AddressBook adds new visitation record for chosen patient</p>
+<p>System adds new visitation record for chosen patient</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1090,7 +1120,7 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. AddressBook shows an error message.</p>
+<p>1a1. VISIT shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1107,20 +1137,20 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Precondition: User can see list of persons</p>
+<p>Precondition: User can see list of patients</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>User requests to edit visitation record for specific patient by patient index</p>
 </li>
 <li>
-<p>AddressBook shows pop-up form for user to edit visitation record</p>
+<p>VISIT shows pop-up form for user to edit visitation record</p>
 </li>
 <li>
 <p>User saves edit</p>
 </li>
 <li>
-<p>AddressBook saves edit</p>
+<p>VISIT saves edit</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1140,7 +1170,7 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. AddressBook shows an indexed list of visitation records</p>
+<p>1a1. VISIT shows an indexed list of visitation records</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1164,7 +1194,7 @@ with a more pronounced color palette and a clearer font.</p>
 <p>User requests to delete visitation record for specific patient by index</p>
 </li>
 <li>
-<p>AddressBook deletes visitation record</p>
+<p>VISIT deletes visitation record</p>
 </li>
 </ol>
 </div>
@@ -1184,7 +1214,7 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. AddressBook shows an indexed list of visitation records
+<p>1a1. VISIT shows an indexed list of visitation records
 Use case resumes at step 1.</p>
 </li>
 </ul>
@@ -1202,7 +1232,7 @@ Use case resumes at step 1.</p>
 <p>User requests to save user-defined macros</p>
 </li>
 <li>
-<p>AddressBook saves user-defined macros</p>
+<p>VISIT saves user-defined macros</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1219,7 +1249,7 @@ Use case resumes at step 1.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. AddressBook shows an error message.</p>
+<p>1a1. VISIT shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1236,7 +1266,7 @@ Use case resumes at step 1.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. AddressBook shows an error message.</p>
+<p>1b1. VISIT shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1256,7 +1286,7 @@ Use case resumes at step 1.</p>
 <p>User requests to invoke user-defined macros</p>
 </li>
 <li>
-<p>AddressBook outputs user-defined data</p>
+<p>VISIT outputs user-defined data</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1273,7 +1303,7 @@ Use case resumes at step 1.</p>
 <p>User requests to remove user-defined macros</p>
 </li>
 <li>
-<p>AddressBook removes user-defined macro</p>
+<p>VISIT removes user-defined macro</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1290,7 +1320,7 @@ Use case resumes at step 1.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. AddressBook shows an error message.</p>
+<p>1a1. VISIT shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1307,7 +1337,7 @@ Use case resumes at step 1.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. AddressBook shows an error message.</p>
+<p>1b1. VISIT shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1317,17 +1347,17 @@ Use case resumes at step 1.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-view-follow-up-reminders" class="discrete">Use case: View follow-up reminders</h3>
+<h3 id="use-case-view-follow-up-visits" class="discrete">Use case: View follow-up visits</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User starts up AddressBook</p>
+<p>User starts up VISIT</p>
 </li>
 <li>
-<p>Follow-up reminders for the day are displayed</p>
+<p>Follow-up visits are displayed</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1340,11 +1370,11 @@ Use case resumes at step 1.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2. No reminders are scheduled for the day</p>
+<p>2. No follow-ups are scheduled.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. AddressBook shows no reminder message</p>
+<p>2a. VISIT shows no follow-ups.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1361,7 +1391,7 @@ Use case resumes at step 1.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User starts up AddressBook</p>
+<p>User starts up VISIT</p>
 </li>
 <li>
 <p>Reminders are displayed</p>
@@ -1377,11 +1407,11 @@ Use case resumes at step 1.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2. No reminders are set to show</p>
+<p>2. No reminders are set to show.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. AddressBook shows no reminder message</p>
+<p>2a. VISIT shows no reminders.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1391,17 +1421,17 @@ Use case resumes at step 1.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-open-message-of-the-day" class="discrete">Use case: Open Message of the Day</h3>
+<h3 id="use-case-open-appointments-message-of-the-day-window" class="discrete">Use case: Open Appointments "Message of the Day" Window</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to open Message of the Day</p>
+<p>User requests to open Appointments Window</p>
 </li>
 <li>
-<p>Message of the Day prompt opens with Follow-Up and Reminders details</p>
+<p>Appointments Window opens with Follow-Up and Reminders listed</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1414,11 +1444,11 @@ Use case resumes at step 1.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2. No follow-up or reminders active</p>
+<p>2. No follow-up or reminders active.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. Message of the Day window shows no active follow-up or reminders</p>
+<p>2a. Message of the Day window shows no active follow-up or reminders.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1427,6 +1457,164 @@ Use case resumes at step 1.</p>
 </div>
 </li>
 </ul>
+</div>
+<h3 id="use-case-add-a-new-follow-up" class="discrete">Use case: Add a new Follow-up</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Precondition: User can see list of patients</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a follow-up for specific patient by index and days count</p>
+</li>
+<li>
+<p>VISIT adds a new follow-up entry into appointments</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. No days count is specified.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Default 7 days will be assumed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The user does not provide a valid index.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. VISIT shows an error and help text.
+Use case resumes at step 1.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-add-a-new-reminder" class="discrete">Use case: Add a new Reminder</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a reminder with description and days count</p>
+</li>
+<li>
+<p>VISIT adds a new reminder into appointments</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. No days count is specified.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Default 7 days will be assumed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The user does not provide a description.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. VISIT shows an error and help text.
+Use case resumes at step 1.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-deletes-an-appointment" class="discrete">Use case: Deletes an Appointment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete an appointment with a given description</p>
+</li>
+<li>
+<p>VISIT removes any appointment matching the given description</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The user does not provide a description.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VISIT shows an error and help text.
+Use case resumes at step 1.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-sorting-appointments" class="discrete">Use case: Sorting Appointments</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to sort the list of appointments</p>
+</li>
+<li>
+<p>VISIT sorts the appointments and updates the display</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>{<strong>TODO</strong> : Please add use cases if your component is not featured here yet. If unsure, just put to be safe. <strong>DELETE WHEN DONE</strong>}</p>
@@ -1585,4 +1773,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 15:36:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 00:42:19 UTC</div></div></div></body></html>
