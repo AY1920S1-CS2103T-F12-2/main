@@ -428,6 +428,24 @@ An unfortunate side effect to matching the longest matching macro increases the 
 <div class="paragraph">
 <p>The Appointments feature comprises of Reminders and Follow-Ups. Users can create a generic Reminder to be notified of an ongoing "something to take note of", such as a hospital being closed. Follow-ups are used to plan future visits to patients. Both Reminders and Follow-ups are represented by the <code>Appointment</code> class, but are facilitated by the <code>AppointmentList</code> class for UI updates and <code>AppointmentTable</code> class for JSON updating.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DGApptAppointmentClassDiagram.png" alt="DGApptAppointmentClassDiagram">
+</div>
+<div class="title">Figure 9. Appointment Class Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DGApptAppointmentListClassDiagram.png" alt="DGApptAppointmentListClassDiagram">
+</div>
+<div class="title">Figure 10. AppointmentList Class Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DGApptAppointmentTableClassDiagram.png" alt="DGApptAppointmentTableClassDiagram">
+</div>
+<div class="title">Figure 11. AppointmentTable Class Diagram</div>
+</div>
 <div class="paragraph">
 <p>The <code>AppointmentList</code> and <code>AppointmentTable</code> are similar and run the same operations in parallel. This is a constraint due to how data is stored into JSON by the underlying program, and is on the timeline to be converged in v2.0. Due to their similarities, we will only look at <code>AppointmentTable</code> for the sake of this documentation.</p>
 </div>
@@ -466,12 +484,22 @@ An unfortunate side effect to matching the longest matching macro increases the 
 <p>These operations are exposed in the <code>Model</code> interface.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how adding a follow-up or reminder works:</p>
+<p>The following sequence diagram shows how adding an appointment works, using reminders as an example:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddAppointmentSequenceDiagram.png" alt="AddAppointmentSequenceDiagram">
+<img src="images/DGApptAddAppointmentSequenceDiagram.png" alt="DGApptAddAppointmentSequenceDiagram">
 </div>
+<div class="title">Figure 12. Adding an Appointment Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how adding an appointment works, using follow-ups as an example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DGApptFollowUpActivityDiagram.png" alt="DGApptFollowUpActivityDiagram">
+</div>
+<div class="title">Figure 13. Adding an Appointment Activity Diagram</div>
 </div>
 </div>
 </div>
@@ -1773,4 +1801,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 08:56:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 11:40:34 UTC</div></div></div></body></html>
