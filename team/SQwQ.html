@@ -1,0 +1,585 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Zheng Shi Qiao - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><a class="navbar-brand" href="https://ay1920s1-cs2103t-f12-2.github.io/main/"><img src="../https://github.com/AY1920S1-CS2103T-F12-2/main/raw/master/docs/images/UnrealUnity.png" alt="Team UnrealUnity"></a><div class="container"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../index.html">Index</a></li><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F12-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Zheng Shi Qiao - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-visit"><a class="link" href="#project-visit">PROJECT: VISIT</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>VISIT is a Java desktop patient-tracking application for doctors on-the-go. The user interacts with it using a CLI(Command-Line-Interface), and it has a GUI(Graphical User Interface) created with JavaFX. It is written by the 5 man team UnrealUnity(which I am a part of), and has about 16 kLoC.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="790">
+</div>
+<div class="title">Figure 1. VISIT Main Window</div>
+</div>
+<div class="paragraph">
+<p>I was in charge of implementing the <strong>Visitation Report</strong> system which consists of the <strong>addvisit</strong>, <strong>editvisit</strong> and <strong>deletevisit</strong> commands. The rest of this document serves to provide a comprehensive overview of my involvement in this project.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides a brief synopsis of my contributions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Implemented <strong>the Visit Report system</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows doctors to create, edit and delete patient reports.</p>
+</li>
+<li>
+<p>Justification: The feature is essential as it enables doctors to record down vital information(such as the prescription and diagnosis) for each consultation with the patient and thus, grant doctors the ability to track the well-being of their patients.</p>
+</li>
+<li>
+<p>Highlights: This enhancement required a holistic understanding of the code base since the implementation necessitates changes in every component of the Model-View-Controller framework. Making sure that the different components of storage, logic and UI interacts with one another correctly is a great technical challenge.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: implemented pop-up form for doctors to fill in consultation details.</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: implemented list pop-up for doctors to view the list of visit reports for a particular patient. The list automatically sorts itself by date, with the most recent report on the top of the list.</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: implemented a prompt window to notify the doctor when the chosen patient has no records</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=SQwQ&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=SQwQ&amp;tabRepo=AY1920S1-CS2103T-F12-2%2Fmain%5Bmaster%5D">RepoSense</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Tests:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote tests for Visit Report system (Example <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/pull/27">#27</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Vetted and assigned issues to team members. (Example <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/issues/155">#155</a> <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/issues/157">#157</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed to both <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/pull/75">dev guide</a> and <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/pull/95">user guide</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>9 PRs reviewed</p>
+</li>
+<li>
+<p>Reported bugs for <a href="https://github.com/SQwQ/ped/issues?q=is%3Aopen+is%3Aissue">DukeCooks</a>, another AddressBook3-based application.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="strong-viewing-and-managing-visits-strong"><a class="link" href="#strong-viewing-and-managing-visits-strong"><strong>Viewing and Managing Visits</strong></a></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>VISIT enables doctors to also track the visitations for each patient, allowing the specification of diagnosis, medications prescribed as well as other general comments per visit.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-new-visitation-report-for-a-patient-code-addvisit-code"><a class="link" href="#adding-a-new-visitation-report-for-a-patient-code-addvisit-code">Adding a new visitation report for a patient : <code>addvisit</code></a></h4>
+<div class="paragraph">
+<p>Opens a pop-up panel that enables the specification of a new visitation report for a particular patient.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addvisit INDEX [v/DATE]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong>:</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say that you have just gotten a patient&#8217;s folder of past visits and you want to record a house call made on 3rd January 2019.
+The patient is 1st in the list.</p>
+</div>
+<div class="paragraph">
+<p>To enter the details of the report into VISIT:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>addvisit 1 v/03/01/2019</code> into the command box and press <kbd>Enter</kbd> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGAddVisit0.png" alt="UGAddVisit0" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Date must be in the "dd/MM/yyyy" format (e.g. <code>v/19/10/2019</code>). The valid range of dates starts from the year 1900 and ends at year 2999 (inclusive).</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If no date is specified and the command is used without the prefix 'v/' (for example <code>addvisit 1</code>), the report will default to the current local date of the computer.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Key in the details in the respective fields of the pop-up form that appears.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGAddVisit1.png" alt="UGAddVisit1" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Press <kbd>CTRL</kbd> + <kbd>Tab</kbd> to navigate to the next field (down)</p>
+</li>
+<li>
+<p>Press <kbd>SHIFT</kbd> + <kbd>Tab</kbd> to navigate to the previous field (up)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click the <kbd>Save</kbd> button or press <kbd>F2</kbd> to save your entry.</p>
+</li>
+<li>
+<p>The pop-up form closes and the display box will display a message indicating a successful entry.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGAddVisit2.png" alt="UGAddVisit2" width="790">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+While  <code>addvisit 1</code> is valid, typing in <code>addvisit 1 v/</code> without a valid date will give an error.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGAddVisit3.png" alt="UGAddVisit3" width="790">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-the-particulars-of-a-visitation-report-code-editvisit-code"><a class="link" href="#editing-the-particulars-of-a-visitation-report-code-editvisit-code">Editing the particulars of a visitation report : <code>editvisit</code></a></h4>
+<div class="paragraph">
+<p>Opens a pop-up panel that enables the editing of an existing visitation report of a particular patient.<br>
+Format: <code>editvisit INDEX [i/REPORT_INDEX]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If no report index is specified, <code>editvisit INDEX</code> will open a panel showing the reports of that patient and the relevant indexes of the reports. To edit the visit report, simply re-enter the command with the desired report index.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGEditVisit0.png" alt="UGEditVisit0" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong>:</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you want to edit the 2nd visit report of a patient and the patient is the 3rd name in the list.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>editvisit 3 i/2</code> into the command box and press <kbd>Enter</kbd> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGEditVisit1.png" alt="UGEditVisit1" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>Key in the details in the respective fields of the pop-up form(which is pre-filled with the existing information of the report) that appears.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGEditVisit2.png" alt="UGEditVisit2" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Press <kbd>CTRL</kbd> + <kbd>Tab</kbd> to navigate to the next field (down)</p>
+</li>
+<li>
+<p>Press <kbd>SHIFT</kbd> + <kbd>Tab</kbd> to navigate to the previous field (up)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click the <kbd>Save</kbd> button or press <kbd>F2</kbd> to save your edits.</p>
+</li>
+<li>
+<p>The pop-up form closes and the display box will display a message indicating a successful entry.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGEditVisit3.png" alt="UGEditVisit3" width="790">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+An error will be thrown if the report with the given report index does not exist or the index given is not a number.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGEditVisit4.png" alt="UGEditVisit4" width="790">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-visitation-report-code-deletevisit-code"><a class="link" href="#deleting-a-visitation-report-code-deletevisit-code">Deleting a visitation report : <code>deletevisit</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified visitation report.<br>
+Format: <code>deletevisit INDEX [d/REPORT_INDEX]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If no report index is specified, <code>deletevisit INDEX</code> will open a panel showing the reports of that patient and their relevant indexes of the reports. To delete the visit, simply re-enter the command with the desired report index.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGDeleteVisit0.png" alt="UGDeleteVisit0" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong>:</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you want to delete the 1st visit report of a patient and the patient is the 2nd name in the list.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>deletevisit 2 d/1</code> into the command box and press <kbd>Enter</kbd> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGDeleteVisit1.png" alt="UGDeleteVisit1" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>A panel showing the list of reports will be shown, now without the deleted report and the display box will display a message indicating a successful deletion.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGDeleteVisit2.png" alt="UGDeleteVisit2" width="790">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+An error will be thrown if the report with the given report index does not exist or the index given is not a number.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGDeleteVisit3.png" alt="UGDeleteVisit3" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>For both <code>deletevisit</code> and <code>editvisit</code> commands if the patient has no past records, a pop up with the message "Patient has no past records" will be shown instead of a list of reports when <code>editvisit [INDEX]</code> or <code>deletevisit [INDEX]</code> is run. Note that an error will be raised if the report index is provided to a patient with no past records, for example <code>editvisit [INDEX] i/1</code> or <code>deletevisit [INDEX] d/1</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGNoRecords.png" alt="UGNoRecords" width="790">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="visitation-report-feature"><a class="link" href="#visitation-report-feature">Visitation Report feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The Visitation Report feature allows the user to <code>add</code>, <code>delete</code> and <code>edit</code> a <code>VisitReport</code> such that for every housecall, information like the prescription and diagnosis can be stored. Every <code>Person</code> has a <code>VisitList</code> attribute and each <code>VisitList</code> object contains an arraylist of <code>VisitReport</code> objects. The feature is facillitated by <code>VisitRecordWindow</code> which creates a form for the user to key in the details of the report, <code>VisitListPanel</code> which creates an indexed pop up list of visit reports for the user to check the index of the report they want to edit/delete and <code>SaveVisitCommand</code> which saves the users input from the form. The following operations are also implemented:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VisitList#addRecord()</code>&#8201;&#8212;&#8201;Adds new <code>VisitReport</code> object to stored arraylist</p>
+</li>
+<li>
+<p><code>VisitList#editRecord()</code>&#8201;&#8212;&#8201;Replaces <code>VisitReport</code> object at given index in arraylist with given <code>VisitReport</code></p>
+</li>
+<li>
+<p><code>VisitList#deleteRecord()</code>&#8201;&#8212;&#8201;Deletes <code>VisitReport</code> by index from stored arraylist</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The class diagram below shows the new additions to the Person class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/VisitClass0.png" alt="VisitClass0">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how every component of the Visitation Report feature behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes <code>addvisit 5 v/12/12/2019</code> command to add a visit report to the visitlist of the 5th person in the address book. This returns a  <code>CommandResult</code> which has the attribute <code>date</code> set as String <code>12/12/2019</code>. <code>MainWindow#executeCommand()</code> is called and the check for <code>CommandResult#isAddVisit()</code> passes, calling  <code>VisitRecordWindow#setReportInfo()</code> to pass the <code>index</code> of the person, the <code>date</code>, and a <code>Logic</code> object to initialize the respective attributes in the <code>VisitRecordWindow</code> class. <code>MainWindow#handleShowVisitForm()</code> is then called to display a pop up form for the user to fill in.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddVisit0.png" alt="AddVisit0">
+</div>
+<div class="title">Figure 2. Activity diagram to illustrate all possible variations of Step 1</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user executes <code>addvisit 5</code> instead, the <code>date</code> attribute of the <code>CommandResult</code> will be set as the current date and the rest of the flow remains the same.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2. The user fills in the form and presses <code>f2</code> on the keyboard or clicks the <code>submit</code> button to save the report. This calls <code>VisitRecordWindow#saveReport()</code> which will create a new <code>SaveVisitCommand</code> and executes it, updating the <code>VisitList</code> of the person via <code>Model#setPerson()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user decides to edit the report and executes the <code>editvisit 1 i/1</code> command.<code>MainWindow#executeCommand()</code> is called and the check for <code>CommandResult#isEditVisit()</code> passes, calling  <code>VisitRecordWindow#setOldReportInfo()</code> which initializes the respective attributes of <code>VisitRecordWindow</code> and populate the form with the content of the <code>VisitReport</code> from  <code>CommandResult#getOldReport()</code> .<code>MainWindow#handleShowVisitForm()</code> is then called to display a pop up form for the user to fill in.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditVisit0.png" alt="EditVisit0">
+</div>
+<div class="title">Figure 3. Activity diagram to illustrate all possible variations of Step 3</div>
+</div>
+<div class="paragraph">
+<p>As shown in the figure above, if the user executes <code>editvisit 1</code> instead, a <code>CommandResult</code> with a <code>ObservableList&lt;VisitReport&gt;</code> object will be returned. <code>MainWindow#executeCommand()</code> 's check for <code>CommandResult#isShowVisitList()</code> passes, calling <code>VisitListPanel#setup()</code> which populates the <code>VisitListPanel</code> with the contents of the <code>ObservableList&lt;VisitReport&gt;</code> object from <code>CommandResult#getObservableVisitList()</code>. Instead of displaying the pop-up form, <code>MainWindow#handleShowVisitList()</code> is called to display a pop up list showing an indexed list of all visitation records of the person.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The user edits the form and presses <code>F3</code> on the keyboard or clicks the <code>submit</code> button to save the changes. The same mechanism mentioned in <code>Step 2</code> is used to update the contents of the edited visit report.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below shows how Step 3 and Step 4 works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditVisit1.png" alt="EditVisit1">
+</div>
+<div class="title">Figure 4. <code>EditVisitCommand</code> and <code>SaveVisitCommand</code> sequence diagram</div>
+</div>
+<div class="paragraph">
+<p>Step 5. The user then decides that the report was beyond salvaging and decides to delete it. Executing the command <code>deletevisit 1 d/1</code>, <code>VisitList#deleteRecord()</code> deletes the entry from the arraylist and <code>Model#setPerson()</code> updates the person with the new <code>VisitList</code>. The <code>CommandResult#isShowVisitList()</code> check in  <code>MainWindow#executeCommand()</code> passes and a pop up list showing an indexed list of all visitation records of the person is displayed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteVisit0.png" alt="DeleteVisit0">
+</div>
+<div class="title">Figure 5. Activity diagram to illustrate all possible variations of Step 5</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user executes <code>deletevisit 1</code> instead, the index value will be set to <code>-1</code> and the <code>VisitList#deleteRecord()</code> block would be skipped, but the rest of the flow remains the same.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-range-of-acceptable-dates-for-code-addvisit-code"><a class="link" href="#aspect-range-of-acceptable-dates-for-code-addvisit-code">Aspect: Range of acceptable dates for <code>addvisit</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Only allow dates with years 19xx or 2xxx</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Prevents user from keying in rubbish dates like year 9999 or 0000</p>
+</li>
+<li>
+<p>Cons: Must conduct 2 checks for date in parser, one for the format dd/MM/19yy and one for the format dd/MM/2yyy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Place no restriction on valid years</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only one check for dd/MM/yyyy format is required.</p>
+</li>
+<li>
+<p>Cons: User can key in rubbish values like dd/MM/9102 or dd/MM/0192</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-keyboard-binding-to-save-report"><a class="link" href="#aspect-keyboard-binding-to-save-report">Aspect: Keyboard binding to save report</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> <code>F2</code> key</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No conflict with any other functions.</p>
+</li>
+<li>
+<p>Cons: Not the most intuitive choice for users.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> <code>Enter</code> key</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Very intuitive choice for saving.</p>
+</li>
+<li>
+<p>Cons: It&#8217;s also used to get to the next line, thus using it as the save button means users can no longer press <code>Enter</code> for next line</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 05:07:35 UTC</div></div></div></body></html>
