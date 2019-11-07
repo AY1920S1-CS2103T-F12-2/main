@@ -85,7 +85,7 @@ We accomplish that by returning a <code>CommandResult</code> with an accompanyin
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">package</span> <span class="namespace">seedu.address.logic.commands</span>;
 
-<span class="keyword">import</span> <span class="include">seedu.address.model.Model</span>;
+<span class="keyword">import</span> <span class="include">Model</span>;
 
 <span class="comment">/**
  * Changes the visitList of an existing person in the address book.
@@ -178,7 +178,7 @@ While this is not a replacement for tests, it is an obvious way to tell if our c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">static</span> <span class="include">seedu.address.commons.util.CollectionUtil.requireAllNonNull</span>;
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">static</span> <span class="include">CollectionUtil.requireAllNonNull</span>;
 <span class="comment">//...</span>
 <span class="directive">public</span> <span class="type">class</span> <span class="class">RemarkCommand</span> <span class="directive">extends</span> Command {
     <span class="comment">//...</span>
@@ -381,7 +381,7 @@ private Label visitList;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>to <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/commit/2758455583f0101ed918a318fc75679270843a0d#diff-0c6b6abcfac8c205e075294f25e851fe"><code>seedu.address.ui.PersonCard</code></a>.
+<p>to <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/commit/2758455583f0101ed918a318fc75679270843a0d#diff-0c6b6abcfac8c205e075294f25e851fe"><code>PersonCard</code></a>.
 <code>@FXML</code> is an annotation that marks a private or protected field and makes it accessible to FXML.
 It might sound like Greek to you right now, don&#8217;t worry&#8201;&#8212;&#8201;we will get back to it later.</p>
 </div>
@@ -616,4 +616,4 @@ In this case, <code>CommandTestUtil#assertCommandSuccess</code> is the best fit 
 <p>This concludes the tutorial for adding a new <code>Command</code> to AddressBook.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 05:07:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:31:38 UTC</div></div></div></body></html>
