@@ -26,7 +26,7 @@
 <li><a href="#appointmentsImplementation">3.2. Appointments feature</a></li>
 <li><a href="#profileImplementation">3.3. Profile feature</a></li>
 <li><a href="#visitImplementation">3.4. Visitation Report feature</a></li>
-<li><a href="#uiImplementation">3.5. [Proposed] GUI Redesign</a></li>
+<li><a href="#uiImplementation">3.5. GUI Redesign</a></li>
 <li><a href="#logImplementation">3.6. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
@@ -85,7 +85,7 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/unrealunity/visit/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/unrealunity/visit/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -167,18 +167,20 @@ The following class plays an important role at the architecture level:</p>
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/UiClassDiagram.png" alt="UiClassDiagram">
+<img src="images/NewUiClassDiagram.png" alt="NewUiClassDiagram">
 </div>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/unrealunity/visit/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>ReminderPanel</code>, etc.
+All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.
+Other UI parts such as HelpWindow, VisitRecordWindow, are not displayed as UI elements in the MainWindow but opens up through a command entered.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/unrealunity/visit/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -204,7 +206,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/unrealunity/visit/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -251,12 +253,12 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/NewModelClassDiagram.png" alt="NewModelClassDiagram">
 </div>
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/unrealunity/visit/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -264,7 +266,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences, alias and appointments.</p>
 </li>
 <li>
 <p>stores the Address Book data.</p>
@@ -296,12 +298,12 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
+<img src="images/NewStorageClassDiagram.png" alt="NewStorageClassDiagram">
 </div>
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/tree/master/src/main/java/unrealunity/visit/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -320,7 +322,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>unrealunity.visit.commons</code> package.</p>
 </div>
 </div>
 </div>
@@ -758,7 +760,7 @@ If the user executes <code>deletevisit 1</code> instead, the index value will be
 </div>
 </div>
 <div class="sect2">
-<h3 id="uiImplementation"><a class="link" href="#uiImplementation">3.5. [Proposed] GUI Redesign</a></h3>
+<h3 id="uiImplementation"><a class="link" href="#uiImplementation">3.5. GUI Redesign</a></h3>
 <div class="paragraph">
 <p>The GUI Redesign is done to include the new features made for the VISIT application, as well as improve the overall
 user experience with a easily readable interface that displays every important information in a glance.</p>
@@ -774,10 +776,16 @@ user experience with a easily readable interface that displays every important i
 <p>the <code>ReminderPanel</code> to display upcoming appointments</p>
 </li>
 <li>
-<p>the <code>VisitRecordWindow</code> form for the user to enter the required information (as mentioned in Visitation Report feature)</p>
+<p>the <code>VisitListPanel</code> to display the visit reports stored in a patient&#8217;s profile. (as mentioned in Visitation Report feature)</p>
+</li>
+<li>
+<p>the <code>VisitRecordWindow</code> form for the user to enter the required information. (as mentioned in Visitation Report feature)</p>
 </li>
 <li>
 <p>the <code>ProfileWindow</code> to display the full profile information of a patient.</p>
+</li>
+<li>
+<p>the <code>MotdWindow</code> to display the appointments in a new window. Motd stands for Message of the Day.</p>
 </li>
 </ul>
 </div>
@@ -786,7 +794,7 @@ user experience with a easily readable interface that displays every important i
 with a more pronounced color palette and a clearer font.</p>
 </div>
 <div class="paragraph">
-<p>The following is the updated class diagram of the Ui Component from these changes:</p>
+<p>The following is the snippet of the class diagram of the Ui Component with the new Classes:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -796,18 +804,24 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The MainWindow has been updated to include the ReminderPanel</p>
+<p>The <code>MainWindow</code> has been new panel which is the ReminderPanel.</p>
 </li>
 <li>
-<p>Two new Windows, VisitRecordWindow and ProfileWindow, are in use in addition to the MainWindow</p>
+<p>Three new Windows, <code>VisitRecordWindow</code>, <code>ProfileWindow</code> and <code>MotdWindow</code>, are in use in addition to the MainWindow.
+These windows are opened through their respective commands.</p>
+</li>
+<li>
+<p><code>ReminderCard</code> and <code>VisitCard</code> gets its data from Model, similar to PersonCard.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-implementation"><a class="link" href="#future-implementation">3.5.2. Future Implementation</a></h4>
+<h4 id="future-implementation"><a class="link" href="#future-implementation">3.5.2. Future implementation</a></h4>
 <div class="paragraph">
-<p>&lt;to be added&gt;</p>
+<p>For future GUI design considerations in v2.0 and above, the panels of each feature such as <code>PersonListPanel</code> and <code>ReminderPanel</code> can be
+separated by tabs, through a dashboard interface. This allows more information to be displayed within each tab, allowing
+users to work with more data.</p>
 </div>
 </div>
 </div>
@@ -1822,4 +1836,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:31:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 17:00:17 UTC</div></div></div></body></html>

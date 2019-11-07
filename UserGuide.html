@@ -59,6 +59,7 @@
 <li><a href="#inventory-system-code-coming-in-v2-0-code">3.7.1. Inventory System <code>[Coming in v2.0]</code></a></li>
 <li><a href="#printing-of-medical-certificates-code-coming-in-v2-0-code">3.7.2. Printing of Medical Certificates <code>[Coming in v2.0]</code></a></li>
 <li><a href="#microsoft-azure-integration-code-coming-in-v2-0-code">3.7.3. Microsoft Azure Integration <code>[Coming in v2.0]</code></a></li>
+<li><a href="#improved-ui-code-coming-in-v2-0-code">3.7.4. Improved UI <code>[Coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -192,21 +193,21 @@ Format: <code>exit</code></p>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>VISIT can store all the patient information for doctors to have them easily accessible. The following commands enable doctors to be able to add patients and their relevant particulars to be tracked by VISIT, and also view a list of patients that have been entered.</p>
+<p>VISIT can store all the patient information for doctors for easy access. The following commands enable doctors to be able to add patients and their relevant particulars to be tracked by VISIT, and also view a list of patients that have been entered.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="listing-all-patients-code-list-code"><a class="link" href="#listing-all-patients-code-list-code">3.2.1. Listing all patients : <code>list</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all patients in the address book.<br>
+<p>Shows a list of all patients in the Patients dashboard. Used after a search function to return back to the full list.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="adding-a-patient-code-add-code"><a class="link" href="#adding-a-patient-code-add-code">3.2.2. Adding a patient : <code>add</code></a></h4>
 <div class="paragraph">
-<p>Adds a patient to VISIT&#8217;s address book.<br>
+<p>Adds a patient to the Patients list.<br>
 Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
@@ -238,7 +239,7 @@ A patient can have any number of tags (including 0). Tags will be appear in lowe
 <div class="sect3">
 <h4 id="editing-a-patient-s-particulars-code-edit-code"><a class="link" href="#editing-a-patient-s-particulars-code-edit-code">3.2.3. Editing a patient&#8217;s particulars : <code>edit</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing patient in the address book.<br>
+<p>Edits an existing patient in the Patients list.<br>
 Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -385,7 +386,7 @@ Opens up a pop-up panel detailing the profile of the patient with the index of 2
 <div class="sect3">
 <h4 id="deleting-a-patient-code-delete-code"><a class="link" href="#deleting-a-patient-code-delete-code">3.2.6. Deleting a patient : <code>delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified patient from the address book.<br>
+<p>Deletes the specified patient from the Patients list.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -413,7 +414,7 @@ Format: <code>delete INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd patient in the address book.</p>
+Deletes the 2nd patient in the list.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -426,7 +427,7 @@ Deletes the 1st patient in the results of the <code>find</code> command.</p>
 <div class="sect3">
 <h4 id="clearing-all-patient-data-code-clear-code"><a class="link" href="#clearing-all-patient-data-code-clear-code">3.2.7. Clearing all patient data : <code>clear</code></a></h4>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
+<p>Clears all entries from the Patients list.<br>
 Format: <code>clear</code></p>
 </div>
 <div class="admonitionblock warning">
@@ -970,6 +971,16 @@ authentication resources. We plan to leverage this power in VISIT v2.0 so that d
 VISIT from any location, truly bringing VISIT on-the-go.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="improved-ui-code-coming-in-v2-0-code"><a class="link" href="#improved-ui-code-coming-in-v2-0-code">3.7.4. Improved UI <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>With more features being added in v2.0, the UI will be reworked to allow new and old features to have
+great accessibility and usability. The new UI will utilise a dashboard system so that Doctors
+are able to view more information as we scale up VISIT&#8217;s functionality. Each tab in the dashboard
+will represent a feature, i.e. The Appointment list will be a tab containing a Calendar view that
+tracks reminders and followups by the date and time, with a pop up notification on launch and near deadlines.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1044,11 +1055,11 @@ e.g. <code>delete 2</code></p>
 e.g. <code>addvisit 1 v/19/10/2019</code></p>
 </li>
 <li>
-<p><strong>Editing the particulars of a visitation report</strong> : <code>editvisit INDEX [i/REPORT INDEX]</code><br>
+<p><strong>Editing the particulars of a visitation report</strong> : <code>editvisit INDEX [i/REPORT_INDEX]</code><br>
 e.g. <code>editvisit 1 i/1</code></p>
 </li>
 <li>
-<p><strong>Deleting a visitation report</strong> : <code>deletevisit INDEX [d/REPORT INDEX]</code><br>
+<p><strong>Deleting a visitation report</strong> : <code>deletevisit INDEX [d/REPORT_INDEX]</code><br>
 e.g. <code>deletevisit 1 d/1</code></p>
 </li>
 </ul>
@@ -1098,4 +1109,4 @@ e.g. <code>unalias display all patients</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:31:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 17:00:17 UTC</div></div></div></body></html>
