@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>VISIT - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><a class="navbar-brand" href="https://ay1920s1-cs2103t-f12-2.github.io/main/"><img src="https://github.com/AY1920S1-CS2103T-F12-2/main/raw/master/docs/images/UnrealUnity.png" alt="Team UnrealUnity"></a><div class="container"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="index.html">Index</a></li><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F12-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>VISIT - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><a class="navbar-brand" href="https://ay1920s1-cs2103t-f12-2.github.io/main/"><img src="https://ay1920s1-cs2103t-f12-2.github.io/main/images/UnrealUnity.png" alt="Team UnrealUnity"></a><div class="container"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="index.html">Index</a></li><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F12-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>VISIT - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team UnrealUnity</code>  	Since: <code>Sep 2019</code>  	Licence: <code>MIT</code></p>
@@ -43,7 +43,6 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
-<li><a href="#saving-data">F.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -62,7 +61,7 @@
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
 </div>
@@ -143,7 +142,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="paragraph">
 <p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
@@ -153,7 +152,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="paragraph">
 <p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
@@ -165,7 +164,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/NewUiClassDiagram.png" alt="NewUiClassDiagram">
 </div>
@@ -198,7 +197,7 @@ Other UI parts such as HelpWindow, VisitRecordWindow, are not displayed as UI el
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
-<div id="fig-LogicClassDiagram" class="imageblock">
+<div id="fig-LogicClassDiagram" class="imageblock text-center">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
@@ -251,7 +250,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/NewModelClassDiagram.png" alt="NewModelClassDiagram">
 </div>
@@ -288,15 +287,17 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <td class="content">
 As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph text-center">
+<p><span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/NewStorageClassDiagram.png" alt="NewStorageClassDiagram">
 </div>
@@ -361,7 +362,7 @@ Additionally, it implements the following operations:</p>
 <div class="paragraph">
 <p>The following sequence diagram shows how adding an alias works:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/AddAliasSequenceDiagram.png" alt="AddAliasSequenceDiagram">
 </div>
@@ -384,7 +385,7 @@ The check for and illegal alias consists of creating a new <code>AddressBookPars
 <div class="paragraph">
 <p>The following sequence diagram shows how applying alias works:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/ApplyAliasSequenceDiagram.png" alt="ApplyAliasSequenceDiagram">
 </div>
@@ -404,7 +405,7 @@ This is a generalized diagram which depicts what happens between <code>execute(c
 <div class="paragraph">
 <p>The following activity diagram shows how applying alias picks which alias to apply:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/ApplyAliasActivityDiagram.png" alt="ApplyAliasActivityDiagram">
 </div>
@@ -430,19 +431,19 @@ An unfortunate side effect to matching the longest matching macro increases the 
 <div class="paragraph">
 <p>The Appointments feature comprises of Reminders and Follow-Ups. Users can create a generic Reminder to be notified of an ongoing "something to take note of", such as a hospital being closed. Follow-ups are used to plan future visits to patients. Both Reminders and Follow-ups are represented by the <code>Appointment</code> class, but are facilitated by the <code>AppointmentList</code> class for UI updates and <code>AppointmentTable</code> class for JSON updating.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/DGApptAppointmentClassDiagram.png" alt="DGApptAppointmentClassDiagram">
 </div>
 <div class="title">Figure 9. Appointment Class Diagram</div>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/DGApptAppointmentListClassDiagram.png" alt="DGApptAppointmentListClassDiagram">
 </div>
 <div class="title">Figure 10. AppointmentList Class Diagram</div>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/DGApptAppointmentTableClassDiagram.png" alt="DGApptAppointmentTableClassDiagram">
 </div>
@@ -488,7 +489,7 @@ An unfortunate side effect to matching the longest matching macro increases the 
 <div class="paragraph">
 <p>The following sequence diagram shows how adding an appointment works, using reminders as an example:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/DGApptAddAppointmentSequenceDiagram.png" alt="DGApptAddAppointmentSequenceDiagram">
 </div>
@@ -497,7 +498,7 @@ An unfortunate side effect to matching the longest matching macro increases the 
 <div class="paragraph">
 <p>The following activity diagram shows how adding an appointment works, using follow-ups as an example:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/DGApptFollowUpActivityDiagram.png" alt="DGApptFollowUpActivityDiagram">
 </div>
@@ -517,7 +518,7 @@ Given below is a simple example usage scenario demonstrate how Profile feature b
 <div class="paragraph">
 <p>Step 1. The user executes <code>profile 3</code> command view the profile of the 3rd person shown in VISIT&#8217;s current list. It extracts the <code>Person</code> instance from the filtered Person list from the current <code>model</code> and returns a <code>CommandResult</code> with the <code>Person</code> instance as an attribute. <code>MainWindow#executeCommand()</code> is called and the check for <code>CommandResult#isShowProfile()</code> passes, calling <code>ProfileWindow#setup()</code> which populates the hidden Profile Window with the attributes of the <code>Person</code> instance before <code>MainWindow#handleProfilePanel()</code> is called to show the Profile Window.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/Profile0.png" alt="Profile0">
 </div>
@@ -525,7 +526,7 @@ Given below is a simple example usage scenario demonstrate how Profile feature b
 <div class="paragraph">
 <p>Step 2. After viewing the relevant information, the user presses the 'esc' key which closes the form. This causes an event handler in <code>ProfileWindow</code> which listens for a <code>KeyEvent.KEY_RELEASED</code> event where the event code equates to <code>KeyCode.ESCAPE</code> ('esc' key) to trigger, which hides the profile window.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/Profile1.png" alt="Profile1">
 </div>
@@ -545,7 +546,7 @@ The user is able to close the <code>ProfileWindow</code> form by clicking the 'x
 <div class="paragraph">
 <p>This sequence diagram fully shows what happens when a user executes the Profile Command:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/ProfileSequenceDiagram1.png" alt="ProfileSequenceDiagram1">
 </div>
@@ -611,7 +612,7 @@ The user is able to close the <code>ProfileWindow</code> form by clicking the 'x
 <div class="paragraph">
 <p>The class diagram below shows the new additions to the Person class.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/VisitClass0.png" alt="VisitClass0">
 </div>
@@ -622,7 +623,7 @@ The user is able to close the <code>ProfileWindow</code> form by clicking the 'x
 <div class="paragraph">
 <p>Step 1. The user executes <code>addvisit 5 v/12/12/2019</code> command to add a visit report to the visitlist of the 5th person in the address book. This returns a  <code>CommandResult</code> which has the attribute <code>date</code> set as String <code>12/12/2019</code>. <code>MainWindow#executeCommand()</code> is called and the check for <code>CommandResult#isAddVisit()</code> passes, calling  <code>VisitRecordWindow#setReportInfo()</code> to pass the <code>index</code> of the person, the <code>date</code>, and a <code>Logic</code> object to initialize the respective attributes in the <code>VisitRecordWindow</code> class. <code>MainWindow#handleShowVisitForm()</code> is then called to display a pop up form for the user to fill in.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/AddVisit0.png" alt="AddVisit0">
 </div>
@@ -646,7 +647,7 @@ If the user executes <code>addvisit 5</code> instead, the <code>date</code> attr
 <div class="paragraph">
 <p>Step 3. The user decides to edit the report and executes the <code>editvisit 1 i/1</code> command.<code>MainWindow#executeCommand()</code> is called and the check for <code>CommandResult#isEditVisit()</code> passes, calling  <code>VisitRecordWindow#setOldReportInfo()</code> which initializes the respective attributes of <code>VisitRecordWindow</code> and populate the form with the content of the <code>VisitReport</code> from  <code>CommandResult#getOldReport()</code> .<code>MainWindow#handleShowVisitForm()</code> is then called to display a pop up form for the user to fill in.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/EditVisit0.png" alt="EditVisit0">
 </div>
@@ -661,7 +662,7 @@ If the user executes <code>addvisit 5</code> instead, the <code>date</code> attr
 <div class="paragraph">
 <p>The sequence diagram below shows how Step 3 and Step 4 works.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/EditVisit1.png" alt="EditVisit1">
 </div>
@@ -670,7 +671,7 @@ If the user executes <code>addvisit 5</code> instead, the <code>date</code> attr
 <div class="paragraph">
 <p>Step 5. The user then decides that the report was beyond salvaging and decides to delete it. Executing the command <code>deletevisit 1 d/1</code>, <code>VisitList#deleteRecord()</code> deletes the entry from the arraylist and <code>Model#setPerson()</code> updates the person with the new <code>VisitList</code>. The <code>CommandResult#isShowVisitList()</code> check in  <code>MainWindow#executeCommand()</code> passes and a pop up list showing an indexed list of all visitation records of the person is displayed.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/DeleteVisit0.png" alt="DeleteVisit0">
 </div>
@@ -796,7 +797,7 @@ with a more pronounced color palette and a clearer font.</p>
 <div class="paragraph">
 <p>The following is the snippet of the class diagram of the Ui Component with the new Classes:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock text-center">
 <div class="content">
 <img src="images/UiRedesignClassDiagram.png" alt="UiRedesignClassDiagram">
 </div>
@@ -1679,9 +1680,6 @@ Use case resumes at step 1.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>{<strong>TODO</strong> : Please add use cases if your component is not featured here yet. If unsure, just put to be safe. <strong>DELETE WHEN DONE</strong>}</p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1724,9 +1722,6 @@ Use case resumes at step 1.</p>
 <p>A housecall or appointment with the patient</p>
 </dd>
 </dl>
-</div>
-<div class="paragraph">
-<p>{<strong>TODO</strong> : Please add terms if any that your commands use here. If unsure, just put to be safe. <strong>DELETE WHEN DONE</strong>}</p>
 </div>
 </div>
 </div>
@@ -1803,7 +1798,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -1812,28 +1807,5 @@ Expected: Similar to previous.</p>
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
 </div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-<div class="paragraph">
-<p>{<strong>TODO</strong> : You can be generic about it because it is probably unrealistic to list out all your tests here. Just follow suit with these examples. <strong>DELETE WHEN DONE</strong>}</p>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 04:23:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:02:45 UTC</div></div></div></body></html>
