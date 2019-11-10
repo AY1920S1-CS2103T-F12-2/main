@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Jerrold Tan - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><a class="navbar-brand" href="https://ay1920s1-cs2103t-f12-2.github.io/main/"><img src="https://ay1920s1-cs2103t-f12-2.github.io/main/images/UnrealUnity.png" alt="Team UnrealUnity"></a><div class="container"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../index.html">Index</a></li><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-F12-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Jerrold Tan - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-visit"><a class="link" href="#project-visit">PROJECT: VISIT</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>VISIT is an open-source Customer Relationship Management (CRM) software for <strong>House Call Doctors</strong>. It is based on a Command-Line Interface (CLI) application called AddressBook3 by the SE-EDU Initiative. The UnrealUnity Team comprising of 4 people including myself introduced features that allow these doctors on-the-go to manage their appointments in an easy and enhanced fashion. It is written in Java with its GUI created in JavaFX, and has about 16 kLoC.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="790">
+</div>
+<div class="title">Figure 1. VISIT Main Window</div>
+</div>
+<div class="paragraph">
+<p>I was tasked with conceptualizing and implementing the <strong>Alias</strong> feature. This document highlights this feature and provides excerpts of documentation for them from the User and Developer Guides.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Added a system for handling aliases</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows the user to define, use and delete aliases.</p>
+</li>
+<li>
+<p>Justification: When doctors visit patients, they need to do multiple things repeatedly, such as scheduling followups. With the inclusion of the alias feature, it streamlines doctors' workflow during visitations.</p>
+</li>
+<li>
+<p>Highlights: This feature requires a dictionary data structure to store all the user-defined aliases which are defined. It also matches the longest starting substring instead of wholesale matching and replacing of the aliases.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#tabOpen=true&amp;tabType=authorship&amp;tabAuthor=Wingedevil&amp;tabRepo=AY1920S1-CS2103T-F12-2%2Fmain%5Bmaster%5D">RepoSense</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Vetted and assigned incoming Issues to team members.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Worked on documentation for the project, example: <a href="https://github.com/AY1920S1-CS2103T-F12-2/main/pull/96">#96</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other projects using AddressBook3 as a base (examples: Code review of <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/12">NurseTraverse</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="strong-optimization-for-command-line-interface-cli-users-strong"><a class="link" href="#strong-optimization-for-command-line-interface-cli-users-strong"><strong>Optimization for Command-Line Interface (CLI) Users</strong></a></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>VISIT being an application optimized for doctors who are comfortable with CLI, has support for features such as aliasing for commands to enable command entries which are often used to be stored and used quickly and easily.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-a-shorthand-command-alias-code-alias-code"><a class="link" href="#setting-a-shorthand-command-alias-code-alias-code">Setting a shorthand command / alias : <code>alias</code></a></h4>
+<div class="paragraph">
+<p>Set an alias for a command to enable faster command entry for a customized input. This command will override your previous mapping for the alias if there exists a prior mapping. Additionally, using existing commands as aliases is disallowed.<br>
+Format: <code>alias l/SHORTHAND v/COMMAND</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Examples</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alias l/ls v/list</code><br>
+Typing <code>ls</code> now works equivalently as typing <code>list</code>.</p>
+</li>
+<li>
+<p><code>alias l/display all patients v/list</code><br>
+Typing <code>display all patients</code> now works equivalently as typing <code>list</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGAddAlias.png" alt="UGAddAlias" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>alias</code> command will override any previous alias mapping if any.<br>
+All your aliases are saved across multiple sessions and are persistent until removed.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-shorthand-command-alias-code-unalias-code"><a class="link" href="#removing-a-shorthand-command-alias-code-unalias-code">Removing a shorthand command / alias : <code>unalias</code></a></h4>
+<div class="paragraph">
+<p>Delete an existing alias, if it exists.<br>
+Format: <code>unalias SHORTHAND</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Examples</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unalias ls</code><br>
+Typing <code>ls</code> will no longer be equivalent to typing <code>list</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGUnalias.png" alt="UGUnalias" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="showing-all-existing-shorthand-commands-aliases-code-aliaslist-code"><a class="link" href="#showing-all-existing-shorthand-commands-aliases-code-aliaslist-code">Showing all existing shorthand commands / aliases : <code>aliaslist</code></a></h4>
+<div class="paragraph">
+<p>Show all existing aliases.<br>
+Format: <code>aliaslist</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>aliaslist</code><br>
+Shows all the existing aliases.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGAliasList.png" alt="UGAliasList" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="using-aliases"><a class="link" href="#using-aliases">Using aliases</a></h4>
+<div class="paragraph">
+<p>To use a user-defined alias, you just have to type the alias you defined. Additional optional parameters can also be specified if the aliased command takes in additional arguments.<br>
+Format: <code>SHORTHAND [additional arguments]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UGApplyAlias.png" alt="UGApplyAlias" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Matching of aliases uses the longest substring match. (i.e. if there exists an alias <em>follow 7</em> and <em>follow</em>, typing <em>follow 7</em> will always match with <em>follow 7</em> instead of <em>follow</em>.)
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="alias-feature"><a class="link" href="#alias-feature">Alias feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The alias mechanism is facilitated by <code>AliasTable</code>. At a lower level, saving of aliases is facilitated by use of a <code>HashMap</code>.
+It is contained within <code>UserPrefs</code> and can be serialized together with the rest of the members in <code>UserPrefs</code>.
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AliasTable#applyAlias(commandText)</code>&#8201;&#8212;&#8201;Applies the longest stored aliases to the supplied command.</p>
+</li>
+<li>
+<p><code>AliasTable#addAlias(alias, aliasTo)</code>&#8201;&#8212;&#8201;Adds a new alias to the alias table.</p>
+</li>
+<li>
+<p><code>AliasTable#removeAlias(alias)</code>&#8201;&#8212;&#8201;Removes a existing alias from the alias table.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#applyAlias(commandText)</code>, <code>Model#addAlias(alias, aliasTo)</code> and <code>Model#removeAlias(alias)</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how adding an alias works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddAliasSequenceDiagram.png" alt="AddAliasSequenceDiagram">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The check for and illegal alias consists of creating a new <code>AddressBookParser</code> and parsing the given alias into it, which is not shown in this diagram.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>unalias</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#removeAlias(alias)</code> instead which calls <code>Model#UserPref(alias)</code> and <code>AliasTable#removeAlias(alias)</code></p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how applying alias works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ApplyAliasSequenceDiagram.png" alt="ApplyAliasSequenceDiagram">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a generalized diagram which depicts what happens between <code>execute(commandText)</code> and <code>LogicManager#parseCommand(alias)</code>. This process is not shown in other sequence diagrams.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A user-defined alias is considered a match with the user input if the alias is a substring, that starts from the beginning, of the user input. Specifically, <code>AliasTable</code> uses the regex <code>(ALIAS)($| ).*</code> to check if it is a match. Following that, it picks the longest matching alias to apply to the user input.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how applying alias picks which alias to apply:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ApplyAliasActivityDiagram.png" alt="ApplyAliasActivityDiagram">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+An unfortunate side effect to matching the longest matching macro increases the time complexity of this operation to O(n) from O(1) if we used wholesale matching instead.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:24:35 UTC</div></div></div></body></html>
