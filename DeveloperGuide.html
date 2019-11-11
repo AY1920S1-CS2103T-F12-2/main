@@ -42,7 +42,15 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
+<li><a href="#user-interface">F.2. User Interface</a></li>
+<li><a href="#adding-a-patient">F.3. Adding a patient</a></li>
+<li><a href="#deleting-a-patient">F.4. Deleting a patient</a></li>
+<li><a href="#adding-a-visit-report">F.5. Adding a visit report</a></li>
+<li><a href="#editing-a-visit-report">F.6. Editing a visit report</a></li>
+<li><a href="#deleting-a-visit-report">F.7. Deleting a visit report</a></li>
+<li><a href="#viewing-and-exporting-a-patient-s-profile">F.8. Viewing and Exporting a Patient’s Profile</a></li>
+<li><a href="#appointment-system">F.9. Appointment System</a></li>
+<li><a href="#creating-deleting-listing-and-using-aliases">F.10. Creating, deleting, listing and using aliases</a></li>
 </ul>
 </li>
 </ul>
@@ -1890,23 +1898,77 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.2. Deleting a person</a></h3>
+<h3 id="user-interface"><a class="link" href="#user-interface">F.2. User Interface</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Typing Commands</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Click on the Command Box with the text “How may I help you?”</p>
+</li>
+<li>
+<p>Type in any Command (i.e. Adding a person)</p>
+</li>
+<li>
+<p>Hit Enter on the keyboard
+Expected: The command should have been successfully entered and the application responds appropriately.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Using Help</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Press the F1 key on your keyboard; Alternatively, click on the Help menu bar at the top of the application and select the Help menu item.<br>
+Expected: The Help Window should appear as a new window.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-patient"><a class="link" href="#adding-a-patient">F.3. Adding a patient</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a patient to the list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add n/Sam Strand p/90811019 e/strandingdeath@gmail.com a/Blk 09 Piccadilly Road #14-137 t/fatigue</code><br>
+Expected: A patient named Sam Strand should be added into the list with his phone number, email and address. He should
+also have a tag that says fatigue in the list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-patient"><a class="link" href="#deleting-a-patient">F.4. Deleting a patient</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a patient while all patients are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all patients using the <code>list</code> command. Multiple patients in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+Expected: First patient is deleted from the list. Details of the deleted patient shown in the status message. Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: No patient is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
@@ -1918,5 +1980,323 @@ Expected: Similar to previous.</p>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="adding-a-visit-report"><a class="link" href="#adding-a-visit-report">F.5. Adding a visit report</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a visit report to a person while all persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>addvisit 1</code><br>
+Expected: Empty form displayed. After saving the form by pressing the Save button or F2, successful save with person details shown in status message. If the person has no previous records or has a Most recent visit date displayed earlier than the current date, Most recent visit date will be updated to current date in the Person card.</p>
+</li>
+<li>
+<p>Test case: <code>addvisit 1 v/12/12/2012</code><br>
+Expected: Similar to previous</p>
+</li>
+<li>
+<p>Test case: <code>addvisit 1 v/invalid</code><br>
+Expected: Error message displayed</p>
+</li>
+<li>
+<p>Other incorrect addvisit commands to try: <code>addvisit</code>, <code>addvisit x</code> (where x is larger than the list size), <code>addvisit x v/dd/mm/yyyy</code> (where x is valid person index and dd/mm/yyyy is an invalid date e.g 30/02/2019 or date with valid day and month but with year not conforming to 19xx or 2xxx format)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:45:47 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-visit-report"><a class="link" href="#editing-a-visit-report">F.6. Editing a visit report</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a person’s visit reports for chosen person are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all reports using the <code>editvist [PERSON_INDEX]</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>editvisit 1 i/1</code><br>
+Expected: Form pops up. After saving the form by pressing the Save button or F2, successful save with person details shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>editvisit 1 i/0</code><br>
+Expected: No form pops up. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>editvisit</code>, <code>editvisit x</code> (where x is larger than the person list size)  <code>editvisit x i/y</code>(where x is is valid person index and y is an invalid report index)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-visit-report"><a class="link" href="#deleting-a-visit-report">F.7. Deleting a visit report</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a report while all visit reports for chosen person are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all reports using the <code>deletevisit [PERSON_INDEX]</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>deletevisit 1 d/1</code><br>
+Expected: First report is deleted from the list. List of reports updates. If the patient has no more reports after deleting, list of reports closes and window prompt of patient having no past records shows.</p>
+</li>
+<li>
+<p>Test case: <code>delete 1 d/0</code><br>
+Expected: No report is deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>deletevisit</code>, <code>deletevisit x</code> (where x is larger than the list size), <code>deletevisit x i/y</code> (where x is is valid person index and y is an invalid report index)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-and-exporting-a-patient-s-profile"><a class="link" href="#viewing-and-exporting-a-patient-s-profile">F.8. Viewing and Exporting a Patient’s Profile</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Opening the ProfileWindow</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>profile 1</code><br>
+Expected: Profile panel for the first Patient is shown on the screen. Details of the Patient should be accurately displayed as well, with all attributes (Name, Phone, Address, etc.), as well as Visit Reports shown.</p>
+</li>
+<li>
+<p>Test case: <code>profile 0</code><br>
+Expected: No profile panel is shown. Error message detailing an invalid command.</p>
+</li>
+<li>
+<p>Other incorrect profile commands to try: <code>profile</code>, <code>profile x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Generating a Patient’s Profile in a .txt file</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A ProfileWindow detailing a valid user is currently shown and in focus.</p>
+</li>
+<li>
+<p>Press <code>p</code> or the <em>Generate Profile File</em> button</p>
+</li>
+<li>
+<p>Expected: A success message is shown next to the <em>Generate Profile File</em> button and the patient’s file is generated in the <em>generated_profiles</em> folder of VISITapp.jar. The filename should be according to the following format: “NAME_PHONE_DATE TIME.txt”.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="appointment-system"><a class="link" href="#appointment-system">F.9. Appointment System</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a Reminder</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>reminder Test</code><br>
+Expected: A new reminder with the description “Test” is created with 7 days remaining. Appointments panel is updated to reflect the new reminder.</p>
+</li>
+<li>
+<p>Test case: <code>reminder Test d/3</code><br>
+Expected: A new reminder with the description “Test” is created with 3 days remaining. Appointments panel is updated to reflect the new reminder.</p>
+</li>
+<li>
+<p>Test case: <code>reminder</code><br>
+Expected: No reminder is created. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>reminder Test d/-1</code><br>
+Expected: No reminder is created. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a Follow-up</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>followup 1</code><br>
+Expected: A new follow-up with the patient in Index 1 is created for 7 days’ time. Appointments panel is updated to reflect the new follow-up.</p>
+</li>
+<li>
+<p>Test case: <code>followup 1 d/3</code><br>
+Expected: A new follow-up with the patient in Index 1 is created for 3 days’ time. Appointments panel is updated to reflect the new follow-up.</p>
+</li>
+<li>
+<p>Test case: <code>followup</code><br>
+Expected: No follow-up is created. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>followup 1 d/-1</code><br>
+Expected: No follow-up is created. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting Appointments</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Multiple appointments in the list.</p>
+</li>
+<li>
+<p>Test case: <code>sort</code><br>
+Expected: Appointments in the list are sorted according to type, then days, then text.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing Appointments</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Reminder named “Test” and Follow-up named “Satya Nadella” in the list.</p>
+</li>
+<li>
+<p>Test case: <code>removeappt Test</code><br>
+Expected: Reminder “Test” is removed. Appointment panel is updated to reflect the deletion.</p>
+</li>
+<li>
+<p>Test case: <code>removeappt Satya Nadella</code><br>
+Expected: Follow-up “Satya Nadella” is removed. Appointment panel is updated to reflect the deletion.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Show Message of the Day</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Multiple appointments in the list.</p>
+</li>
+<li>
+<p>Test case: <code>show</code><br>
+Expected: Message of the Day panel appears with Appointment list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-deleting-listing-and-using-aliases"><a class="link" href="#creating-deleting-listing-and-using-aliases">F.10. Creating, deleting, listing and using aliases</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Creating an alias</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>alias l/ls v/list</code><br>
+Expected: A new alias is created, mapping <code>ls</code> to <code>list</code>.</p>
+</li>
+<li>
+<p>Test case: <code>alias l/a v/list</code><br>
+Expected: A new alias is created, mapping <code>a</code> to <code>list</code>, overriding the existing default mapping of <code>a</code> to <code>add</code>.</p>
+</li>
+<li>
+<p>Other incorrect alias commands to try: <code>alias potato</code>, <code>alias l/x v/alias</code> (where x is an existing non-aliased command)<br>
+Expected: No alias is created. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting an alias</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have an existing alias mapping of <code>a</code> to <code>add</code>, but no mapping of <code>potato</code> to anything.</p>
+</li>
+<li>
+<p>Test case: <code>unalias a</code><br>
+Expected: The existing mapping of <code>a</code> to <code>add</code> will be deleted.</p>
+</li>
+<li>
+<p>Test case: <code>unalias potato</code><br>
+Expected: No alias is deleted as there is no existing alias with the name <code>potato</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Using alias</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have an existing alias mapping <code>follow</code> to <code>followup 1</code>, mapping <code>follow14</code> to <code>followup 1 d/14</code> and list at least one person using the <code>list</code> or <code>find</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>follow</code><br>
+Expected: A new follow up is created for the first person in the list with the default days of 7 days. The appointments panel will also be updated with the new appointment.</p>
+</li>
+<li>
+<p>Test case: <code>follow14</code><br>
+Expected: A new follow up is created for the first person in the list with the specified input of 14 days. The appointments panel will also be updated with the new appointment.</p>
+</li>
+<li>
+<p>Test case: <code>follow d/30</code><br>
+Expected: A new follow up is created for the first person in the list with the specified input of 30 days. The appointments panel will also be updated with the new appointment.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing aliases</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Only have an existing alias mapping of <code>a</code> to <code>add</code>.</p>
+</li>
+<li>
+<p>Test case: <code>aliaslist</code><br>
+Expected: List of aliases panel is shown on the screen. All existing user-defined aliases are shown.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:56:05 UTC</div></div></div></body></html>
