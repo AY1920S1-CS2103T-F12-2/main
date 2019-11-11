@@ -511,28 +511,82 @@ An unfortunate side effect to matching the longest matching macro increases the 
 </div>
 <div class="sect2">
 <h3 id="profileImplementation"><a class="link" href="#profileImplementation">3.3. Profile feature</a></h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/PppProfile0.png" alt="PppProfile0" width="600">
+</div>
+<div class="title">Figure 14. VISIT&#8217;s Profile Feature. Profile Panel (left) and an exported Profile .txt file (right)</div>
+</div>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The profile feature allows the user to be able to see the full details of the patient as well as all relevant visit information (See <a href="#visitImplementation">Visit Implementation</a>) from a single panel. Attributes of the patient is extracted from the <code>Person</code> instance, including the <code>Name</code>, <code>Address</code>, <code>Phone</code>, <code>Email</code>, <code>Tags</code> and <code>VisitList</code>, which can be easily extended following the implementation detailed below. The patient profile feature is facilitated by <code>ProfileWindow</code>, which is instanced and instantly hidden (<code>hide()</code>) upon the instancing of <code>MainWindow</code> on VISIT&#8217;s start up.<br>
-<br>
-Given below is a simple example usage scenario demonstrate how Profile feature behaves and interacts with the other components.</p>
+<p>The <strong>Profile feature</strong> allows the user to be able to <strong>see the full details of the patient</strong> as well as all relevant visit information (See <a href="#visitImplementation">Visit Implementation</a>) from a single panel. Attributes of the patient is extracted from the <code>Person</code> instance, including the <code>Name</code>, <code>Address</code>, <code>Phone</code>, <code>Email</code>, <code>Tags</code> and <code>VisitList</code>. The Profile feature also enables users to <strong>export the Profile as a read-only text file</strong> for archiving.</p>
+</div>
+<div class="sect4">
+<h5 id="strong-profile-panel-implementation-strong"><a class="link" href="#strong-profile-panel-implementation-strong"><strong>Profile Panel Implementation:</strong></a></h5>
+<div class="paragraph">
+<p><em>The displaying of the patient profile panel is mainly facilitated by the following components:</em></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>ProfileWindow</code> - Displays the relevant information of the Patient on the Profile Panel.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>#setup</code> - On invocation, populates the Panel with the given <code>Person</code> instance.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ProfileCommand</code> - Instantiated when the command is parsed by <code>ProfileCommandParser</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>#execute</code> - Extracts the Person from the current model.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ProfileUtil</code> - Utilized during <code>ProfileWindow#setup</code> to translate the various <code>Person</code> attributes to <code>Strings</code> (stringify).</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>Step 1. The user executes <code>profile 3</code> command view the profile of the 3rd person shown in VISIT&#8217;s current list. It extracts the <code>Person</code> instance from the filtered Person list from the current <code>model</code> and returns a <code>CommandResult</code> with the <code>Person</code> instance as an attribute. <code>MainWindow#executeCommand()</code> is called and the check for <code>CommandResult#isShowProfile()</code> passes, calling <code>ProfileWindow#setup()</code> which populates the hidden Profile Window with the attributes of the <code>Person</code> instance before <code>MainWindow#handleProfilePanel()</code> is called to show the Profile Window.</p>
+<p>Given below is a simple example usage scenario demonstrate how Profile feature behaves and interacts with the other components:</p>
+</div>
+<div class="paragraph">
+<p><strong>1</strong>. The user executes <code>profile 3</code> command view the profile of the 3rd person shown in VISIT&#8217;s current list. This is parsed as a <code>ProfileCommand</code>, which is then executed.</p>
+</div>
+<div class="paragraph">
+<p><strong>2</strong>. The <code>Person</code> instance from the filtered Person list from the current <code>model</code> and returns a <code>CommandResult</code> with the <code>Person</code> instance as an attribute.</p>
+</div>
+<div class="paragraph">
+<p><strong>3</strong>. <code>MainWindow#executeCommand()</code> is then executed, calling <code>ProfileWindow#setup()</code> which populates the hidden Profile Window with the attributes of the <code>Person</code> instance before <code>MainWindow#handleProfilePanel()</code> is called to show the Profile Window to the user.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/Profile0.png" alt="Profile0">
+<img src="images/Profile0.png" alt="Profile0" width="350">
 </div>
+<div class="title">Figure 15. Activity Diagram for Steps 1 - 3</div>
 </div>
 <div class="paragraph">
-<p>Step 2. After viewing the relevant information, the user presses the 'esc' key which closes the form. This causes an event handler in <code>ProfileWindow</code> which listens for a <code>KeyEvent.KEY_RELEASED</code> event where the event code equates to <code>KeyCode.ESCAPE</code> ('esc' key) to trigger, which hides the profile window.</p>
+<p><strong>[4]</strong>. In this optional step, users can choose to export the Patient&#8217;s Profile as a .txt file by pressing the <code>p</code> key or clicking on the <em>Generate Profile File</em> button on the UI. The implementation of this is detailed in the next section.</p>
+</div>
+<div class="paragraph">
+<p><strong>5</strong>. After viewing the relevant information, the user presses the 'esc' key which closes the form. This causes an event handler in <code>ProfileWindow</code> which listens for a <code>KeyEvent.KEY_RELEASED</code> event where the event code equates to <code>KeyCode.ESCAPE</code> ('esc' key) to trigger, which hides the profile window.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/Profile1.png" alt="Profile1">
+<img src="images/Profile1.png" alt="Profile1" width="350">
 </div>
+<div class="title">Figure 16. Activity Diagram for Step 4-5</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -555,34 +609,94 @@ The user is able to close the <code>ProfileWindow</code> form by clicking the 'x
 </div>
 </div>
 </div>
+<div class="sect4">
+<h5 id="strong-profile-generation-implementation-strong"><a class="link" href="#strong-profile-generation-implementation-strong"><strong>Profile Generation Implementation:</strong></a></h5>
+<div class="paragraph">
+<p><em>The patient profile generation functionality is mainly facilitated by the following components:</em></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>ProfileWindow</code> - Serves as origin for invoking the <code>GenerateProfileCommand</code> using <code>#generateProfilePressed</code>.</p>
+</li>
+<li>
+<p><code>GenerateProfileCommand</code> - Instantiated by <code>ProfileWindow</code> with the relevant <code>Person</code> attributes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>#execute</code> - Uses <code>FileUtil</code> and <code>ProfileUtil</code> to build the contents of the Profile .txt file and create it in the relevant directory.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The following is a scenario to illustrate the behaviour of how this functionality works:</p>
+</div>
+<div class="paragraph">
+<p><strong>1</strong>. The user presses the <code>p</code> key or the <em>Generate Profile File</em> button on the Profile Panel. This invokes the <code>generateProfilePressed()</code> in <code>ProfileWindow</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>2</strong>. This generates a new <code>GenerateProfileCommand</code> instance relating to the <code>Person</code> that <code>ProfileWindow</code> is currently on. This command is then executed using the same <code>LogicManager</code> as <code>ProfileWindow</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>3</strong>. The executed command uses <code>FileUtil</code> to generate the parent file (<em>generated_profiles</em>) if it has not been created.</p>
+</div>
+<div class="paragraph">
+<p><strong>4</strong>. <code>ProfileUtil</code> is invoked to assemble a <code>String</code> containing the entire content of the <code>ProfileWindow</code> in a presentable manner.</p>
+</div>
+<div class="paragraph">
+<p><strong>5</strong>. <code>FileUtil</code> is then called again to generate a read-only .txt file containing the file content. A <code>CommandResult</code> indicating success is the propagated back to <code>ProfileWindow</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>6</strong>. Upon success, a small message is generated next to the <em>Generate Profile File</em> button on the Profile Panel.</p>
+</div>
+<div class="paragraph">
+<p>This simplified sequence diagram summarizes the critical interactions between ProfileWindow, GenerateProfileCommand, FileUtil and ProfileUtil:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/ProfileSequenceDiagram2.png" alt="ProfileSequenceDiagram2">
+</div>
+</div>
+</div>
+</div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-profile-shows-the-information-from-the-patient"><a class="link" href="#aspect-how-profile-shows-the-information-from-the-patient">Aspect: How Profile shows the information from the patient</a></h5>
+<h5 id="aspect-how-profile-shows-the-information-from-the-patient-in-profilewindow"><a class="link" href="#aspect-how-profile-shows-the-information-from-the-patient-in-profilewindow">Aspect: How Profile shows the information from the patient in ProfileWindow</a></h5>
+<div class="paragraph">
+<p><code>ProfileWindow</code> currently uses the <code>Person</code> class as its data structure to access all the relevant information on the Profile Panel. This presents some design considerations as listed here:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Does not create an explicit <code>Profile</code> instance.</p>
+<p><strong>Alternative 1 (current choice):</strong> Does not create an explicit <code>Profile</code> class to store the Profile data.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement, more straight forward (Just show data without the need to store what is essentially a clone of a <code>Person</code> instance).</p>
+<p>Pros: Easy to implement, more straight forward implementation. Defensive copies of Person can be used instead of a explicit <code>Profile</code> class which contains the exact same field variables as a Person.</p>
 </li>
 <li>
-<p>Cons: May cause dependency issues as this increases coupling, with relation to the Profile and Patient class. Foreseeably, this may cause issues especially when patient attributes are to be added or removed.</p>
+<p>Cons: May cause dependency issues as this increases coupling, with relation to the Profile and Patient class.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Create an explicit <code>Profile</code> instance every call.</p>
+<p><strong>Alternative 2:</strong> Create an explicit <code>Profile</code> class, which is instanced every command call.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Decreases coupling by cutting down on the direct calls to the <code>Person</code> instance.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the <code>Profile</code> instance generated is correct every time.</p>
+<p>Cons: Adds to bloat in code structure, as it is very similar to <code>Person</code> class. We must ensure that the <code>Profile</code> instance generated is correct every time.</p>
 </li>
 </ul>
 </div>
@@ -630,7 +744,7 @@ The user is able to close the <code>ProfileWindow</code> form by clicking the 'x
 <div class="content">
 <img src="images/AddVisit0.png" alt="AddVisit0">
 </div>
-<div class="title">Figure 14. Activity diagram to illustrate all possible variations of Step 1</div>
+<div class="title">Figure 17. Activity diagram to illustrate all possible variations of Step 1</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -654,7 +768,7 @@ If the user executes <code>addvisit 5</code> instead, the <code>date</code> attr
 <div class="content">
 <img src="images/EditVisit0.png" alt="EditVisit0">
 </div>
-<div class="title">Figure 15. Activity diagram to illustrate all possible variations of Step 3</div>
+<div class="title">Figure 18. Activity diagram to illustrate all possible variations of Step 3</div>
 </div>
 <div class="paragraph">
 <p>As shown in the figure above, if the user executes <code>editvisit 1</code> instead, a <code>CommandResult</code> with a <code>ObservableList&lt;VisitReport&gt;</code> object will be returned. <code>MainWindow#executeCommand()</code> 's check for <code>CommandResult#isShowVisitList()</code> passes, calling <code>VisitListPanel#setup()</code> which populates the <code>VisitListPanel</code> with the contents of the <code>ObservableList&lt;VisitReport&gt;</code> object from <code>CommandResult#getObservableVisitList()</code>. Instead of displaying the pop-up form, <code>MainWindow#handleShowVisitList()</code> is called to display a pop up list showing an indexed list of all visitation records of the person.</p>
@@ -669,7 +783,7 @@ If the user executes <code>addvisit 5</code> instead, the <code>date</code> attr
 <div class="content">
 <img src="images/EditVisit1.png" alt="EditVisit1">
 </div>
-<div class="title">Figure 16. <code>EditVisitCommand</code> and <code>SaveVisitCommand</code> sequence diagram</div>
+<div class="title">Figure 19. <code>EditVisitCommand</code> and <code>SaveVisitCommand</code> sequence diagram</div>
 </div>
 <div class="paragraph">
 <p>Step 5. The user then decides that the report was beyond salvaging and decides to delete it. Executing the command <code>deletevisit 1 d/1</code>, <code>VisitList#deleteRecord()</code> deletes the entry from the arraylist and <code>Model#setPerson()</code> updates the person with the new <code>VisitList</code>. The <code>CommandResult#isShowVisitList()</code> check in  <code>MainWindow#executeCommand()</code> passes and a pop up list showing an indexed list of all visitation records of the person is displayed.</p>
@@ -678,7 +792,7 @@ If the user executes <code>addvisit 5</code> instead, the <code>date</code> attr
 <div class="content">
 <img src="images/DeleteVisit0.png" alt="DeleteVisit0">
 </div>
-<div class="title">Figure 17. Activity diagram to illustrate all possible variations of Step 5</div>
+<div class="title">Figure 20. Activity diagram to illustrate all possible variations of Step 5</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1811,4 +1925,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:24:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 04:00:07 UTC</div></div></div></body></html>

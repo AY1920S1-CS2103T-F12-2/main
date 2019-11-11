@@ -29,7 +29,12 @@
 <li><a href="#clearing-all-patient-data-code-clear-code">3.2.6. Clearing all patient data : <code>clear</code></a></li>
 </ul>
 </li>
-<li><a href="#strong-viewing-and-generating-a-patient-s-profile-strong-code-profile-code">3.3. <strong>Viewing and Generating a Patient&#8217;s Profile</strong> : <code>profile</code></a></li>
+<li><a href="#strong-viewing-and-generating-a-patient-s-profile-strong">3.3. <strong>Viewing and Generating a Patient&#8217;s Profile</strong></a>
+<ul class="sectlevel3">
+<li><a href="#strong-opening-a-profile-window-strong-code-profile-code">3.3.1. <strong>Opening a Profile Window:</strong> : <code>profile</code></a></li>
+<li><a href="#strong-generating-and-exporting-a-profile-as-a-txt-file-strong">3.3.2. <strong>Generating and Exporting a Profile as a .txt file</strong></a></li>
+</ul>
+</li>
 <li><a href="#strong-viewing-and-managing-visits-strong">3.4. <strong>Viewing and Managing Visits</strong></a>
 <ul class="sectlevel3">
 <li><a href="#adding-a-new-visitation-report-for-a-patient-code-addvisit-code">3.4.1. Adding a new visitation report for a patient : <code>addvisit</code></a></li>
@@ -71,7 +76,7 @@
 <ul class="sectlevel2">
 <li><a href="#strong-application-commands-strong-2">5.1. <strong>Application Commands</strong></a></li>
 <li><a href="#strong-viewing-and-managing-patients-strong-2">5.2. <strong>Viewing and Managing Patients</strong></a></li>
-<li><a href="#strong-viewing-and-generating-a-patient-s-profile-strong">5.3. <strong>Viewing and Generating a Patient&#8217;s Profile</strong></a></li>
+<li><a href="#strong-viewing-and-generating-a-patient-s-profile-strong-2">5.3. <strong>Viewing and Generating a Patient&#8217;s Profile</strong></a></li>
 <li><a href="#strong-viewing-and-managing-visits-strong-2">5.4. <strong>Viewing and Managing Visits</strong></a></li>
 <li><a href="#strong-appointment-system-strong">5.5. <strong>Appointment System</strong></a></li>
 <li><a href="#strong-optimization-for-command-line-interface-cli-users-strong-2">5.6. <strong>Optimization for Command-Line Interface (CLI) Users</strong></a></li>
@@ -393,7 +398,7 @@ Be careful when entering this, as this will erase all patient data from VISIT!
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-viewing-and-generating-a-patient-s-profile-strong-code-profile-code"><a class="link" href="#strong-viewing-and-generating-a-patient-s-profile-strong-code-profile-code">3.3. <strong>Viewing and Generating a Patient&#8217;s Profile</strong> : <code>profile</code></a></h3>
+<h3 id="strong-viewing-and-generating-a-patient-s-profile-strong"><a class="link" href="#strong-viewing-and-generating-a-patient-s-profile-strong">3.3. <strong>Viewing and Generating a Patient&#8217;s Profile</strong></a></h3>
 <div class="paragraph">
 <p>VISIT allows you to visualize a specified patient’s full details on an easy to access panel. The command can be initiated as follows: <br>
 Format: <code>profile INDEX</code></p>
@@ -415,21 +420,26 @@ Format: <code>profile INDEX</code></p>
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="strong-opening-a-profile-window-strong-code-profile-code"><a class="link" href="#strong-opening-a-profile-window-strong-code-profile-code">3.3.1. <strong>Opening a Profile Window:</strong> : <code>profile</code></a></h4>
 <div class="paragraph">
-<p><strong>Example:</strong></p>
+<p><strong>Step 1</strong>: Enter in <code>profile 1</code> into the command bar and press <kbd>Enter</kbd>.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/UGProfile0.png" alt="UGProfile0" width="790">
+<img src="images/UGProfile0.png" alt="UGProfile0" width="450">
 </div>
 </div>
 <div class="paragraph">
-<p>Entering this command generates a pop out panel (seen below) detailing the various attributes of the specified Patient. This includes all attributes and visitation records.</p>
+<p><strong>Step 2</strong>: A pop out panel will appear, detailing the various attributes of the specified Patient.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/UGProfile1.png" alt="UGProfile1" width="790">
+<img src="images/UGProfile1.png" alt="UGProfile1" width="450">
 </div>
+</div>
+<div class="paragraph">
+<p>This window includes all Patient attributes and visitation records.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -444,17 +454,17 @@ You must close this window before doing anything else with VISIT (Adding Visits,
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Generating and Exporting a Profile as a .txt file</strong></p>
+<p><strong>Closing the panel</strong><br>
+Clicking on the cross on the top-right of the panel or pressing <kbd>esc</kbd> button on your keyboard will close the panel.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="strong-generating-and-exporting-a-profile-as-a-txt-file-strong"><a class="link" href="#strong-generating-and-exporting-a-profile-as-a-txt-file-strong">3.3.2. <strong>Generating and Exporting a Profile as a .txt file</strong></a></h4>
 <div class="paragraph">
 <p>You can generate a text file containing the contents of the Patient&#8217;s Profile, for your own archiving purposes and exporting.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="paragraph">
-<p>To export a Profile in a text file: <strong>press <kbd>p</kbd>  on your keyboard or click the <kbd>Generate Profile File</kbd> button.</strong></p>
-</div>
-</div>
+<p><strong>Step 1</strong>: Press <kbd>p</kbd> on your keyboard or click the <kbd>Generate Profile File</kbd> button.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -474,16 +484,19 @@ You will see a message saying "<em>Profile .txt created in /generated_profiles/<
 </table>
 </div>
 <div class="paragraph">
-<p>Generated text version of Profiles are saved under the <code>generated_profiles</code> folder located in the parent folder of <em>VISITapp.jar</em>.<br></p>
+<p><strong>Step 2</strong>: Navigate to the <em>generated_profiles</em> folder located in the parent folder of <em>VISITapp.jar</em></p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/UGProfile3.png" alt="UGProfile3" width="790">
+<img src="images/UGProfile3.png" alt="UGProfile3" width="500">
 </div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: Access the generated profile stored in the folder.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/UGProfile4.png" alt="UGProfile4" width="790">
+<img src="images/UGProfile4.png" alt="UGProfile4" width="400">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -493,9 +506,7 @@ You will see a message saying "<em>Profile .txt created in /generated_profiles/<
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The generated text file will be the following format:<br>
-<code>NAME_PHONE_dd-MM-yyyy hh-mm-ss.txt</code><br>
-e.g. <code>Alex Yeoh_87438807_02-11-2019 20-33-58.txt</code>
+The generated text file will be the following format: <em>Name_Contact Number_Date Time.txt</em> e.g. <em>Alex Yeoh_87438807_02-11-2019 20-33-58.txt</em>
 </td>
 </tr>
 </table>
@@ -505,7 +516,7 @@ e.g. <code>Alex Yeoh_87438807_02-11-2019 20-33-58.txt</code>
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/UGProfile5.png" alt="UGProfile5" width="500">
+<img src="images/UGProfile5.png" alt="UGProfile5" width="400">
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -520,9 +531,6 @@ While files are write-protected, you can still create duplicate copies for editi
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Closing the panel</strong><br>
-Clicking on the cross on the top-right of the panel or pressing <kbd>esc</kbd> button on your keyboard will close the panel.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1185,7 +1193,7 @@ e.g. <code>delete 2</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-viewing-and-generating-a-patient-s-profile-strong"><a class="link" href="#strong-viewing-and-generating-a-patient-s-profile-strong">5.3. <strong>Viewing and Generating a Patient&#8217;s Profile</strong></a></h3>
+<h3 id="strong-viewing-and-generating-a-patient-s-profile-strong-2"><a class="link" href="#strong-viewing-and-generating-a-patient-s-profile-strong-2">5.3. <strong>Viewing and Generating a Patient&#8217;s Profile</strong></a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1258,4 +1266,4 @@ e.g. <code>unalias display all patients</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:24:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 04:00:07 UTC</div></div></div></body></html>
